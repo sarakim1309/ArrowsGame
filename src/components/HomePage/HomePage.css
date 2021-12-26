@@ -17,10 +17,7 @@
     margin-top: 15%;
 }
 
-body {
-   background-color: skyblue;
-}
- body .arrows {
+  .arrows {
    position: relative;
   /**/
    position: absolute;
@@ -31,7 +28,7 @@ body {
    height: 80px;
    transform: translate(-50%, -50%);
 }
- body .arrows:before {
+  .arrows:before {
    content: '';
    position: absolute;
    width: 100%;
@@ -41,7 +38,7 @@ body {
    transform: translate(26.6666666667px, 106.6666666667px) rotate(-45deg);
    animation: arrows 3s linear infinite;
 }
- body .arrows:after {
+  .arrows:after {
    content: '';
    position: absolute;
    width: 100%;

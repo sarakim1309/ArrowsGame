@@ -1,0 +1,31 @@
+.arrowDown{
+    position: relative;
+    transform: translate(1%,10%);
+}
+.arrowDown span{
+    display: inline-flex;
+    margin-right: 15px;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+    transform: rotate(45deg);
+    animation: animateDown 1s normal infinite;
+}
+.arrowDown span:nth-child{
+    animation: animateDown 1s normal infinite -1s;
+}
+
+@keyframes animateDown {
+    0%{
+        opacity: 0;
+        transform: rotate(45deg) translate(-20rem,-20rem);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(45deg) translate(10rem,10rem);
+    }
+}

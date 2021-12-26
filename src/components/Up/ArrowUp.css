@@ -1,0 +1,31 @@
+.arrowUp{
+    position: relative;
+    transform: translate(1%,10%);
+}
+.arrowUp span{
+    display: inline-flex;
+    margin-right: 15px;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+    transform: rotate(225deg);
+    animation: animateUp 1s infinite;
+}
+.arrowUp span:nth-child{
+    animation: animateUp 1s infinite -1s;
+}
+
+@keyframes animateUp {
+    0%{
+        opacity: 0;
+        transform: rotate(225deg) translate(-20rem,-20rem);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(225deg) translate(20rem,20rem);
+    }
+}

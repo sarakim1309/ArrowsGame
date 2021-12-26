@@ -1,0 +1,32 @@
+.arrowRight{
+    position: relative;
+    transform: translate(0rem, -60rem);
+}
+.arrowRight span{
+    display: inline-flex;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+    transform: rotate(315deg);
+    animation: animateRight 1s infinite;
+}
+.arrowRight span:nth-child{
+    animation: animateRight 1s infinite -1s;
+}
+
+@keyframes animateRight {
+    0%{
+        opacity: 0;
+        transform: rotate(315deg) translate(-20rem,-20rem);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(315deg) translate(50rem,50rem);
+    }
+}
