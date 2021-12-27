@@ -11,9 +11,12 @@ function HomePage() {
   return (
     <div className= "HP"> Arrows
         <div className="HP-text">
-            <button type="button" class="btn btn-primary btn-lg startSize" onClick={handleClick}>Start</button>
+            <button type="button" className="btn btn-primary btn-lg startSize" onClick={handleClick}>Start</button>
         </div>
-        <div class="arrows"></div>
+{/*        <div className="HP-text">
+            <button type="button" class="btn btn-primary btn-lg startSize" onClick={handleClick}>Reglas</button>
+        </div>*/}
+        <div className="arrows"></div>
     </div>
   );
 }

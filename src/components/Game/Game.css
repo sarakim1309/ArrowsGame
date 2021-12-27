@@ -1,14 +1,15 @@
-.timer {
-  width: 140px;
-  padding:2px;
-  margin-bottom: 500%;
-  background-color: #8e44ad;
-  display:flex;
-  color: white;
+.score {
   position: absolute;
-}
-.timer span {
-  padding: 4px;
+  left: 0;
+  top: 0;
+  padding: 2px;
 }
 
+.game-lost {
+  display: flex;
+  justify-content: center;
+  color: darkred;
+  font-size: 10rem;
+  font-family: Noto Sans, sans-serif;
+}
 
