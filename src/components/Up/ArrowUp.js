@@ -2,10 +2,10 @@ import React from 'react'
 import './ArrowUp.css';
 
 
-export default function ArrowUp() {
+export default function ArrowUp(style) {
 	return (
 		<div>
-			<div className="arrowUp">
+			<div className={style}>
 				<span></span> <span></span> <span></span> <span></span> <span></span>
 				<span></span> <span></span> <span></span> <span></span> <span></span>
 				<span></span> <span></span> <span></span> <span></span> <span></span>

@@ -3,17 +3,27 @@ import './Up.css';
 import ArrowUp from './ArrowUp.js';
 
 
-export default function Up() {
+export default function Up(move) {
 	return (
 		<div className = "upDisplay">
-			<ArrowUp/>
-			<ArrowUp/>
-			<ArrowUp/>
-			<ArrowUp/>
-			<ArrowUp/>
-			<ArrowUp/>
-			<ArrowUp/>
-			<ArrowUp/>
+			{ArrowUp(move)}
+			{ArrowUp(move)}
+			{ArrowUp(move)}
+			{ArrowUp(move)}
+			{ArrowUp(move)}
+			{ArrowUp(move)}
+			{ArrowUp(move)}
+			{ArrowUp(move)}
+			{ArrowUp(move)}
+			{ArrowUp(move)}
+			{ArrowUp(move)}
+			{ArrowUp(move)}
+			{ArrowUp(move)}
+			{ArrowUp(move)}
+			{ArrowUp(move)}
+			{ArrowUp(move)}
+			{ArrowUp(move)}
+			{ArrowUp(move)}
 		</div>
 	)
 }

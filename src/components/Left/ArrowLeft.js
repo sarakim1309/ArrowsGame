@@ -2,13 +2,16 @@ import React from 'react'
 import './ArrowLeft.css';
 
 
-export default function ArrowLeft() {
+export default function ArrowLeft(style) {
 	return (
 		<div>
-			<div className="arrowLeft">
+			<div className={style}>
 				<span></span> <span></span> <span></span> <span></span> <span></span>
 				<span></span> <span></span> <span></span> <span></span> <span></span>
-				<span></span> <span></span> 
+				<span></span> <span></span> <span></span> <span></span> <span></span>
+				<span></span> <span></span> <span></span> <span></span> <span></span>
+				<span></span> <span></span> <span></span> <span></span> <span></span>
+				<span></span> <span></span> <span></span> <span></span> <span></span>
 			</div>
 		</div>
 	)

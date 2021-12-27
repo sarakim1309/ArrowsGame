@@ -2,10 +2,10 @@ import React from 'react'
 import './ArrowDown.css';
 
 
-export default function ArrowDown() {
+export default function ArrowDown(style) {
 	return (
 		<div>
-			<div className="arrowDown">
+			<div className={style}>
 				<span></span> <span></span> <span></span> <span></span> <span></span>
 				<span></span> <span></span> <span></span> <span></span> <span></span>
 				<span></span> <span></span> <span></span> <span></span> <span></span>

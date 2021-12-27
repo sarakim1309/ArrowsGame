@@ -9,7 +9,7 @@ function HomePage() {
     navigate("/Game");
   }
   return (
-    <div className= "HP"> Arrows
+    <div className= "HP"> ReactIonGame
         <div className="HP-text">
             <button type="button" className="btn btn-primary btn-lg startSize" onClick={handleClick}>Start</button>
         </div>

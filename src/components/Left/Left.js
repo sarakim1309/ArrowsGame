@@ -3,22 +3,22 @@ import './Left.css';
 import ArrowLeft from './ArrowLeft.js';
 
 
-export default function Left() {
+export default function Left(move) {
 	return (
 		<div className = "leftDisplay">
-			<ArrowLeft/>
-			<ArrowLeft/>
-			<ArrowLeft/>
-			<ArrowLeft/>
-			<ArrowLeft/>
-			<ArrowLeft/>
-			<ArrowLeft/>
-			<ArrowLeft/>
-			<ArrowLeft/>
-			<ArrowLeft/>
-			<ArrowLeft/>
-			<ArrowLeft/>
-			<ArrowLeft/>
+			{ArrowLeft(move)}
+			{ArrowLeft(move)}
+			{ArrowLeft(move)}
+			{ArrowLeft(move)}
+			{ArrowLeft(move)}
+			{ArrowLeft(move)}
+			{ArrowLeft(move)}
+			{ArrowLeft(move)}
+			{ArrowLeft(move)}
+			{ArrowLeft(move)}
+			{ArrowLeft(move)}
+			{ArrowLeft(move)}
+			{ArrowLeft(move)}
 		</div>
 	)
 }

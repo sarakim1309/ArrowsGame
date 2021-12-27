@@ -8,6 +8,7 @@ import Down from '../Down/Down.js';
 
 function initState () {
 	return {
+		react: 1,
 		direction: 1,
 		lost: false,
 		score: 0,
@@ -35,7 +36,7 @@ const reducer = (state, action) => {
 				direction: 0,
 			})
 		case 'update':
-			console.log('update state', action.newState); 
+			// console.log('update state', action.newState); 
 			return {
 				...state,
 				...action.newState
@@ -48,7 +49,7 @@ const reducer = (state, action) => {
 
 export default function Game() {
 	const [state, dispatch] = useReducer(reducer,initState()); 
-	console.log("state: ", state);
+	// console.log("state: ", state);
 	
 	let { direction, lost, score } = state;
 	
@@ -69,6 +70,7 @@ export default function Game() {
 	let count = 0
 	const gameLoop = () => {
 		const nextState = {
+			react: 1, //nextReact(),
 			direction: nextMove(),
 			lost: false,
 			score: count,
@@ -92,6 +94,12 @@ export default function Game() {
 	const nextMove = () => {
 		dir = Math.floor(Math.random() * 4 + 1)
 		return dir;
+	}
+
+	let r = 1;
+	const nextReact = () => {
+		r = Math.floor(Math.random() * 3 + 1)
+		return r;
 	}
 
 	let lostState = false
@@ -118,24 +126,74 @@ export default function Game() {
 		}
 	}
 
+	let move = 0
 	const drawDirection = () => {
-		if (state.direction === 1) {
-			return (
-				component = <Right/> 
-			)
-		} else if (state.direction === 2) {
-			return (
-				component = <Up/> 
-			)
-		} else if (state.direction === 3) {
-			return (
-				component = <Left/> 
-			)
-		} else if (state.direction === 4) {
-			component = <Down/> 
+		if(state.react === 1) {
+			if (state.direction === 1) {
+				if(state.score < 5) {
+					component = Right("rightRight")
+				} else {
+					move = Math.floor(Math.random() * 4 + 1)
+					if(move === 1) {
+						component = Right("rightRight")
+					} else if (move === 2) {
+						component = Right("rightLeft")
+					} else if (move === 3) {
+						component = Right("rightUp")
+					} else if (move === 4) {
+						component = Right("rightDown")
+					}
+				}
+			} else if (state.direction === 2) {
+				if(state.score < 5) {
+					component = Up("upUp")
+				} else {
+					move = Math.floor(Math.random() * 4 + 1)
+					if(move === 1) {
+						component = Up("upUp")
+					} else if (move === 2) {
+						component = Up("upLeft")
+					} else if (move === 3) {
+						component = Up("upRight")
+					} else if (move === 4) {
+						component = Up("upDown")
+					}
+				} 
+			} else if (state.direction === 3) {
+				if(state.score < 5) {
+					component = Left("leftLeft")
+				} else {
+					move = Math.floor(Math.random() * 4 + 1)
+					if(move === 1) {
+						component = Left("leftLeft")
+					} else if (move === 2) {
+						component = Left("leftRight")
+					} else if (move === 3) {
+						component = Left("leftDown")
+					} else if (move === 4) {
+						component = Left("leftUp")
+					}
+				} 
+			} else if (state.direction === 4) {
+				if(state.score < 5) {
+					component = Down("downDown")
+				} else {
+					move = Math.floor(Math.random() * 4 + 1)
+					if(move === 1) {
+						component = Down("downDown")
+					} else if (move === 2) {
+						component = Down("downLeft")
+					} else if (move === 3) {
+						component = Down("downUp")
+					} else if (move === 4) {
+						component = Down("downRight")
+					}
+				} 
+			}
 		}
 		return (
 			<div> {component} </div>
+			// <div> {Right("rightUp")} </div>
 		)
 	}
 
@@ -144,7 +202,6 @@ export default function Game() {
 		    <div className="info"> 
         		<h4 className="score">SCORE: {state.score} </h4>
      	 	</div>
-     	 	{console.log(state.lost)}
      	 	{state.lost && 
             <div className="game-lost">
               You lost🤡️!

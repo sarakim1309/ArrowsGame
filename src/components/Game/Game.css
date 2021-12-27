@@ -2,7 +2,9 @@
   position: absolute;
   left: 0;
   top: 0;
-  padding: 2px;
+  padding: 0.5%;
+  font-weight: bold;
+  font-family: Courier, "Lucida Console", monospace;
 }
 
 .game-lost {
@@ -10,6 +12,6 @@
   justify-content: center;
   color: darkred;
   font-size: 10rem;
-  font-family: Noto Sans, sans-serif;
+  font-family: Courier, "Lucida Console", monospace;
 }
 

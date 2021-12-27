@@ -3,17 +3,26 @@ import './Down.css';
 import ArrowDown from './ArrowDown.js';
 
 
-export default function Down() {
+export default function Down(move) {
 	return (
 		<div className = "downDisplay">
-			<ArrowDown/>
-			<ArrowDown/>
-			<ArrowDown/>
-			<ArrowDown/>
-			<ArrowDown/>
-			<ArrowDown/>
-			<ArrowDown/>
-			<ArrowDown/>
+			{ArrowDown(move)}
+			{ArrowDown(move)}
+			{ArrowDown(move)}
+			{ArrowDown(move)}
+			{ArrowDown(move)}
+			{ArrowDown(move)}
+			{ArrowDown(move)}
+			{ArrowDown(move)}
+			{ArrowDown(move)}
+			{ArrowDown(move)}
+			{ArrowDown(move)}
+			{ArrowDown(move)}
+			{ArrowDown(move)}
+			{ArrowDown(move)}
+			{ArrowDown(move)}
+			{ArrowDown(move)}
+			{ArrowDown(move)}
 		</div>
 	)
 }
