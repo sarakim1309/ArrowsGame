@@ -49,7 +49,7 @@ const reducer = (state, action) => {
 
 export default function Game() {
 	const [state, dispatch] = useReducer(reducer,initState()); 
-	// console.log("state: ", state);
+	console.log("state: ", state);
 	
 	let { direction, lost, score } = state;
 	
@@ -68,12 +68,24 @@ export default function Game() {
 
 	let component = null
 	let count = 0
+	let nextState = null
 	const gameLoop = () => {
-		const nextState = {
-			react: 1, //nextReact(),
-			direction: nextMove(),
-			lost: false,
-			score: count,
+		console.log(state.score)
+		if(count > 10) {
+			console.log("ENTRE")
+			nextState = {
+				react: nextReact(),
+				direction: nextMove(),
+				lost: false,
+				score: count,
+			}
+		} else {
+			nextState = {
+				react: 1,
+				direction: nextMove(),
+				lost: false,
+				score: count,
+			}
 		}
 
 		dispatch({
@@ -98,7 +110,8 @@ export default function Game() {
 
 	let r = 1;
 	const nextReact = () => {
-		r = Math.floor(Math.random() * 3 + 1)
+		r = Math.floor(Math.random() * 2 + 1) //DESPUES 3
+		console.log("REACT ", r)
 		return r;
 	}
 
@@ -106,15 +119,19 @@ export default function Game() {
 	let actionMade = false
 	const handleKey = (e) => {
 		if (dir === 3 && (e.which !== Keys.Left && e.which !== Keys.a)) {  // left /a
+			console.log(dir, e.which)
 			lostState = true
 		}
 		else if (dir === 1 && (e.which !== Keys.Right && e.which !== Keys.d)) {  // right /d
+			console.log(dir, e.which)
 			lostState = true
 		}
 		else if (dir === 2 && (e.which !== Keys.Up && e.which !== Keys.w)) {  // up /w
+			console.log(dir, e.which)
 			lostState = true
 		}
 		else if (dir === 4 && (e.which !== Keys.Down && e.which !== Keys.s)) {  // down /s
+			console.log(dir, e.which)
 			lostState = true
 		}
 		if (lostState) {
@@ -187,6 +204,61 @@ export default function Game() {
 						component = Down("downUp")
 					} else if (move === 4) {
 						component = Down("downRight")
+					}
+				} 
+			}
+		// COLOR 2
+		} else if(state.react === 2) {
+			if (state.direction === 1) {
+				if(state.score > 10) {
+					move = Math.floor(Math.random() * 4 + 1)
+					if(move === 1) {
+						component = Right("rightRight2")
+					} else if (move === 2) {
+						component = Left("leftRight2")
+					} else if (move === 3) {
+						component = Up("upRight2")
+					} else if (move === 4) {
+						component = Down("downRight2")
+					}
+				}
+			} else if (state.direction === 2) {
+				if(state.score > 10) {
+					move = Math.floor(Math.random() * 4 + 1)
+					if(move === 1) {
+						component = Up("upUp2")
+					} else if (move === 2) {
+						component = Left("leftUp2")
+					} else if (move === 3) {
+						component = Right("rightUp2")
+					} else if (move === 4) {
+						component = Down("downUp2")
+					}
+				} 
+			} else if (state.direction === 3) {
+				if(state.score > 10) {
+					move = Math.floor(Math.random() * 4 + 1)
+					if(move === 1) {
+						component = Left("leftLeft2")
+					} else if (move === 2) {
+						component = Right("rightLeft2")
+					} else if (move === 3) {
+						component = Down("downLeft2")
+					} else if (move === 4) {
+						component = Up("upLeft2")
+					}
+				} 
+			} else if (state.direction === 4) {
+				if(state.score > 10) {
+					move = Math.floor(Math.random() * 4 + 1)
+					if(move === 1) {
+						component = Down("downDown2")
+					} else if (move === 2) {
+						component = Left("leftDown2")
+					} else if (move === 3) {
+						component = Up("upDown2")
+					} else if (move === 4) {
+						component = Right("rightDown2")
 					}
 				} 
 			}
