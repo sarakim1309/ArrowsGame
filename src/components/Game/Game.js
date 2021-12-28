@@ -8,7 +8,7 @@ import Down from '../Down/Down.js';
 
 function initState () {
 	return {
-		react: 1,
+		color: 1,
 		direction: 1,
 		lost: false,
 		score: 0,
@@ -69,12 +69,10 @@ export default function Game() {
 	let count = 0
 	let nextState = null
 	const gameLoop = () => {
-		console.log("gameLoop", actionMade, r, state.react)
 		let lastR = 0;
 		lastR = r
-		// console.log(state.score)
 		nextState = {
-			react: nextReact(),
+			color: nextColor(),
 			direction: nextMove(),
 			lost: false,
 			score: count,
@@ -96,14 +94,12 @@ export default function Game() {
 
 	let dir = 1;
 	const nextMove = () => {
-		console.log("nextMove", actionMade, r, state.react)
 		dir = Math.floor(Math.random() * 4 + 1)
 		return dir;
 	}
 
 	let r = 1;
-	const nextReact = () => {
-		console.log("nextReact", actionMade, r, state.react)
+	const nextColor = () => {
 		if(count > 15) {
 			r = Math.floor(Math.random() * 3 + 1)
 		} else if(count > 8) {
@@ -117,7 +113,6 @@ export default function Game() {
 	let lostState = false
 	let actionMade = false
 	const handleKey = (e) => {
-		console.log("handleKey", actionMade, r, state.react)
 		if(r !== 3) {
 			if (dir === 3 && (e.which !== Keys.Left && e.which !== Keys.a)) {  // left /a
 				lostState = true
@@ -143,130 +138,83 @@ export default function Game() {
 
 	let move = 0
 	const drawDirection = () => {
-		console.log("drawDirection", actionMade, r, state.react)
-		if(state.react === 1) {
+		//COLOR VERDE
+		if(state.color === 1) {
 			if (state.direction === 1) {
-				if(state.score < 5) {
-					component = Right("rightRight")
-				} else {
+				if(state.score < 5) { component = Right("right rRight") } 
+				else {
 					move = Math.floor(Math.random() * 4 + 1)
-					if(move === 1) {
-						component = Right("rightRight")
-					} else if (move === 2) {
-						component = Right("rightLeft")
-					} else if (move === 3) {
-						component = Right("rightUp")
-					} else if (move === 4) {
-						component = Right("rightDown")
-					}
+					if(move === 1) { component = Right("right rRight") } 
+					else if (move === 2) { component = Right("right rLeft") }
+					else if (move === 3) { component = Right("right rUp") } 
+					else if (move === 4) { component = Right("right rDown")	}
 				}
 			} else if (state.direction === 2) {
-				if(state.score < 5) {
-					component = Up("upUp")
-				} else {
+				if(state.score < 5) { component = Up("up uUp") } 
+				else {
 					move = Math.floor(Math.random() * 4 + 1)
-					if(move === 1) {
-						component = Up("upUp")
-					} else if (move === 2) {
-						component = Up("upLeft")
-					} else if (move === 3) {
-						component = Up("upRight")
-					} else if (move === 4) {
-						component = Up("upDown")
-					}
+					if(move === 1) { component = Up("up uUp") } 
+					else if (move === 2) { component = Up("up uLeft") } 
+					else if (move === 3) { component = Up("up uRight") } 
+					else if (move === 4) { component = Up("up uDown") }
 				} 
 			} else if (state.direction === 3) {
-				if(state.score < 5) {
-					component = Left("leftLeft")
-				} else {
+				if(state.score < 5) { component = Left("left lLeft") } 
+				else {
 					move = Math.floor(Math.random() * 4 + 1)
-					if(move === 1) {
-						component = Left("leftLeft")
-					} else if (move === 2) {
-						component = Left("leftRight")
-					} else if (move === 3) {
-						component = Left("leftDown")
-					} else if (move === 4) {
-						component = Left("leftUp")
-					}
+					if(move === 1) { component = Left("left lLeft") } 
+					else if (move === 2) { component = Left("left rRight") } 
+					else if (move === 3) { component = Left("left dDown") } 
+					else if (move === 4) { component = Left("left uUp") }
 				} 
 			} else if (state.direction === 4) {
-				if(state.score < 5) {
-					component = Down("downDown")
-				} else {
+				if(state.score < 5) { component = Down("down dDown") } 
+				else {
 					move = Math.floor(Math.random() * 4 + 1)
-					if(move === 1) {
-						component = Down("downDown")
-					} else if (move === 2) {
-						component = Down("downLeft")
-					} else if (move === 3) {
-						component = Down("downUp")
-					} else if (move === 4) {
-						component = Down("downRight")
-					}
+					if(move === 1) { component = Down("down dDown") } 
+					else if (move === 2) { component = Down("down dLeft") } 
+					else if (move === 3) { component = Down("down dUp") } 
+					else if (move === 4) { component = Down("down dRight") }
 				} 
 			}
-		// COLOR 2
-		} else if(state.react === 2) {
+		// COLOR NARANJA
+		} else if(state.color === 2) {
 			if (state.direction === 1) {
 				move = Math.floor(Math.random() * 4 + 1)
-				if(move === 1) {
-					component = Right("rightRight2")
-				} else if (move === 2) {
-					component = Left("leftRight2")
-				} else if (move === 3) {
-					component = Up("upRight2")
-				} else if (move === 4) {
-					component = Down("downRight2")
-				}
+				if(move === 1) { component = Right("right2 rRight") } 
+				else if (move === 2) { component = Left("left2 lRight") } 
+				else if (move === 3) { component = Up("up2 uRight") } 
+				else if (move === 4) { component = Down("down2 dRight") }
 			} else if (state.direction === 2) {
 				move = Math.floor(Math.random() * 4 + 1)
-				if(move === 1) {
-					component = Up("upUp2")
-				} else if (move === 2) {
-					component = Left("leftUp2")
-				} else if (move === 3) {
-					component = Right("rightUp2")
-				} else if (move === 4) {
-					component = Down("downUp2")
-				} 
+				if(move === 1) { component = Up("up2 uUp") } 
+				else if (move === 2) { component = Left("left2 lUp") } 
+				else if (move === 3) { component = Right("right2 rUp") } 
+				else if (move === 4) { component = Down("down2 dUp") } 
 			} else if (state.direction === 3) {
 				move = Math.floor(Math.random() * 4 + 1)
-				if(move === 1) {
-					component = Left("leftLeft2")
-				} else if (move === 2) {
-					component = Right("rightLeft2")
-				} else if (move === 3) {
-					component = Down("downLeft2")
-				} else if (move === 4) {
-					component = Up("upLeft2")
-				} 
+				if(move === 1) { component = Left("left2 lLeft") } 
+				else if (move === 2) { component = Right("right2 rLeft") } 
+				else if (move === 3) { component = Down("down2 dLeft") } 
+				else if (move === 4) { component = Up("up2 uLeft") } 
 			} else if (state.direction === 4) {
 				move = Math.floor(Math.random() * 4 + 1)
-				if(move === 1) {
-					component = Down("downDown2")
-				} else if (move === 2) {
-					component = Left("leftDown2")
-				} else if (move === 3) {
-					component = Up("upDown2")
-				} else if (move === 4) {
-					component = Right("rightDown2")
-				} 
+				if(move === 1) { component = Down("down2 dDown") } 
+				else if (move === 2) { component = Left("left2 lDown") } 
+				else if (move === 3) { component = Up("up2 uDown") } 
+				else if (move === 4) { component = Right("right2 rDown") }
 			}
-		} else if(state.react === 3) {
-			if (state.react === 1) {
-				component = Right("rightRight3")
-			} else if (state.react === 2) {
-				component = Up("upUp3")
-			} else if (state.react === 3) {
-				component = Left("leftLeft3")
-			} else if (state.react === 4) {
-				component = Down("downDown3")
-			}
+		//COLOR ROJO
+		} else if(state.color === 3) {
+			move = Math.floor(Math.random() * 4 + 1)
+			if (move === 1) { component = Right("right3 rRight")} 
+			else if (move === 2) { component = Up("up3 uUp")} 
+			else if (move === 3) { component = Left("left3 lLeft")} 
+			else if (move === 4) { component = Down("down3 dDown")}
 		}
 		return (
-			// <div> {component} </div>
-			<div> {Down("downDown")} </div>
+			<div> {component} </div>
+			// <div> {Up("up2 uRight")} </div>
 		)
 	}
 

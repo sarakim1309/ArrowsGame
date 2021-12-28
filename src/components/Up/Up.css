@@ -1,5 +1,4 @@
 .upDisplay{
-    position: absolute;
+    position: relative;
     float: right;
-    margin-bottom: 10px;
 }

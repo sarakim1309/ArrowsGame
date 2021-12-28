@@ -1,5 +1,4 @@
 .leftDisplay{
-    position: absolute;
+    position: relative;
     float: right;
-    margin-top: 45%;
 }

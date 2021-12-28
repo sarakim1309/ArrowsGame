@@ -1,8 +1,5 @@
-.rightRight{
-    position: relative;
-    transform: translate(0%, -1250%);
-}
-.rightRight span{
+.right span{
+    transform: rotate(315deg);
     display: inline-flex;
     margin-right: 10px;
     margin-bottom: 25px;
@@ -10,132 +7,11 @@
     height: 45px;
     border-bottom: 10px solid seagreen;
     border-right: 10px solid seagreen;
-    transform: rotate(315deg);
-    animation: animateRight 1.5s infinite;
-}
-.rightRight span:nth-child{
-    animation: animateRight 1.5s infinite -1.5s;
-}
-
-@keyframes animateRight {
-    0%{
-        opacity: 0;
-        transform: rotate(315deg) translate(-15rem,-15rem);
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-        transform: rotate(315deg) translate(15rem,15rem);
-    }
-}
-
-.rightLeft{
-    position: relative;
-    transform: translate(0%, -1250%);
-}
-.rightLeft span{
-    display: inline-flex;
-    margin-right: 10px;
-    margin-bottom: 25px;
-    width: 45px;
-    height: 45px;
-    border-bottom: 10px solid seagreen;
-    border-right: 10px solid seagreen;
-    transform: rotate(315deg);
-    animation: animateRightLeft 1.5s infinite;
-}
-.rightLeft span:nth-child{
-    animation: animateRightLeft 1.5s infinite -1.5s;
-}
-
-@keyframes animateRightLeft {
-    0%{
-        opacity: 0;
-        transform: rotate(315deg) translate(15rem,15rem);
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-        transform: rotate(315deg) translate(-15rem,-15rem);
-    }
-}
-
-.rightUp{
-    position: relative;
-    transform: translate(0%, -1250%);
-}
-.rightUp span{
-    display: inline-flex;
-    margin-right: 10px;
-    margin-bottom: 25px;
-    width: 45px;
-    height: 45px;
-    border-bottom: 10px solid seagreen;
-    border-right: 10px solid seagreen;
-    transform: rotate(315deg);
-    animation: animateRightUp 1.5s infinite;
-}
-.rightUp span:nth-child{
-    animation: animateRightUp 1.5s infinite -1.5s;
-}
-
-@keyframes animateRightUp {
-    0%{
-        opacity: 0;
-        transform: rotate(315deg) translate(-15rem,15rem);
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-        transform: rotate(315deg) translate(15rem,-15rem);
-    }
-}
-
-.rightDown{
-    position: relative;
-    transform: translate(0%, -1250%);
-}
-.rightDown span{
-    display: inline-flex;
-    margin-right: 10px;
-    margin-bottom: 25px;
-    width: 45px;
-    height: 45px;
-    border-bottom: 10px solid seagreen;
-    border-right: 10px solid seagreen;
-    transform: rotate(315deg);
-    animation: animateRightDown 1.5s infinite;
-}
-.rightDown span:nth-child{
-    animation: animateRightDown 1.5s infinite -1.5s;
-}
-
-@keyframes animateRightDown {
-    0%{
-        opacity: 0;
-        transform: rotate(315deg) translate(15rem,-15rem);
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-        transform: rotate(315deg) translate(-15rem,15rem);
-    }
 }
 
 /*Second color*/
-.rightRight2{
-    position: relative;
-    transform: translate(0%, -1250%);
-}
-.rightRight2 span{
+.right2 span{
+    transform: rotate(315deg);
     display: inline-flex;
     margin-right: 10px;
     margin-bottom: 25px;
@@ -143,132 +19,11 @@
     height: 45px;
     border-bottom: 10px solid orangered;
     border-right: 10px solid orangered;
-    transform: rotate(315deg);
-    animation: animateRight 1.5s infinite;
-}
-.rightRight2 span:nth-child{
-    animation: animateRight 1.5s infinite -1.5s;
-}
-
-@keyframes animateRight {
-    0%{
-        opacity: 0;
-        transform: rotate(315deg) translate(-15rem,-15rem);
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-        transform: rotate(315deg) translate(15rem,15rem);
-    }
-}
-
-.rightLeft2{
-    position: relative;
-    transform: translate(0%, -1250%);
-}
-.rightLeft2 span{
-    display: inline-flex;
-    margin-right: 10px;
-    margin-bottom: 25px;
-    width: 45px;
-    height: 45px;
-    border-bottom: 10px solid orangered;
-    border-right: 10px solid orangered;
-    transform: rotate(315deg);
-    animation: animateRightLeft 1.5s infinite;
-}
-.rightLeft2 span:nth-child{
-    animation: animateRightLeft 1.5s infinite -1.5s;
-}
-
-@keyframes animateRightLeft {
-    0%{
-        opacity: 0;
-        transform: rotate(315deg) translate(15rem,15rem);
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-        transform: rotate(315deg) translate(-15rem,-15rem);
-    }
-}
-
-.rightUp2{
-    position: relative;
-    transform: translate(0%, -1250%);
-}
-.rightUp2 span{
-    display: inline-flex;
-    margin-right: 10px;
-    margin-bottom: 25px;
-    width: 45px;
-    height: 45px;
-    border-bottom: 10px solid orangered;
-    border-right: 10px solid orangered;
-    transform: rotate(315deg);
-    animation: animateRightUp 1.5s infinite;
-}
-.rightUp2 span:nth-child{
-    animation: animateRightUp 1.5s infinite -1.5s;
-}
-
-@keyframes animateRightUp {
-    0%{
-        opacity: 0;
-        transform: rotate(315deg) translate(-15rem,15rem);
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-        transform: rotate(315deg) translate(15rem,-15rem);
-    }
-}
-
-.rightDown2{
-    position: relative;
-    transform: translate(0%, -1250%);
-}
-.rightDown2 span{
-    display: inline-flex;
-    margin-right: 10px;
-    margin-bottom: 25px;
-    width: 45px;
-    height: 45px;
-    border-bottom: 10px solid orangered;
-    border-right: 10px solid orangered;
-    transform: rotate(315deg);
-    animation: animateRightDown 1.5s infinite;
-}
-.rightDown2 span:nth-child{
-    animation: animateRightDown 1.5s infinite -1.5s;
-}
-
-@keyframes animateRightDown {
-    0%{
-        opacity: 0;
-        transform: rotate(315deg) translate(15rem,-15rem);
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-        transform: rotate(315deg) translate(-15rem,15rem);
-    }
 }
 
 /*Third color*/
-.rightRight3{
-    position: relative;
-    transform: translate(0%, -1250%);
-}
-.rightRight3 span{
+.right3 span{
+    transform: rotate(315deg);
     display: inline-flex;
     margin-right: 10px;
     margin-bottom: 25px;
@@ -276,23 +31,78 @@
     height: 45px;
     border-bottom: 10px solid darkred;
     border-right: 10px solid darkred;
-    transform: rotate(315deg);
+}
+
+.rRight {
     animation: animateRight 1.5s infinite;
 }
-.rightRight3 span:nth-child{
-    animation: animateRight 1.5s infinite -1.5s;
+
+.rLeft{
+    animation: animateRightLeft 1.5s infinite;
+}
+
+.rUp{
+    animation: animateRightUp 1.5s infinite;
+}
+
+
+.rDown{
+    animation: animateRightDown 1.5s infinite;
 }
 
 @keyframes animateRight {
     0%{
         opacity: 0;
-        transform: rotate(315deg) translate(-15rem,-15rem);
+        transform: translate(-15rem,0rem);
     }
     50%{
         opacity: 1;
     }
     100%{
         opacity: 0;
-        transform: rotate(315deg) translate(15rem,15rem);
+        transform: translate(15rem,0rem);
+    }
+}
+
+@keyframes animateRightLeft {
+    0%{
+        opacity: 0;
+        transform: translate(15rem,0rem);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translate(-15rem,0rem);
+    }
+}
+
+
+@keyframes animateRightUp {
+    0%{
+        opacity: 0;
+        transform: translate(0rem,15rem);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translate(0rem,-15rem);
+    }
+}
+
+@keyframes animateRightDown {
+    0%{
+        opacity: 0;
+        transform: translate(0rem,-15rem);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translate(0rem,15rem);
     }
 }

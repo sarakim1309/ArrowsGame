@@ -1,5 +1,4 @@
 .rightDisplay{
-    position: absolute;
-    float: right;
-    margin-top: 50%;
+    position: relative;
+    float: left;
 }
