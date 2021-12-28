@@ -18,12 +18,6 @@ export default function Up(move) {
 			{ArrowUp(move)}
 			{ArrowUp(move)}
 			{ArrowUp(move)}
-			{ArrowUp(move)}
-			{ArrowUp(move)}
-			{ArrowUp(move)}
-			{ArrowUp(move)}
-			{ArrowUp(move)}
-			{ArrowUp(move)}
 		</div>
 	)
 }

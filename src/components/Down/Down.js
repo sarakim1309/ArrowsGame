@@ -18,11 +18,6 @@ export default function Down(move) {
 			{ArrowDown(move)}
 			{ArrowDown(move)}
 			{ArrowDown(move)}
-			{ArrowDown(move)}
-			{ArrowDown(move)}
-			{ArrowDown(move)}
-			{ArrowDown(move)}
-			{ArrowDown(move)}
 		</div>
 	)
 }

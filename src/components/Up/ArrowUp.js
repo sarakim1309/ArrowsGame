@@ -9,9 +9,7 @@ export default function ArrowUp(style) {
 				<span></span> <span></span> <span></span> <span></span> <span></span>
 				<span></span> <span></span> <span></span> <span></span> <span></span>
 				<span></span> <span></span> <span></span> <span></span> <span></span>
-				<span></span> <span></span> <span></span> <span></span> <span></span>
-				<span></span> <span></span> <span></span> <span></span> <span></span>
-				<span></span> <span></span>
+				<span></span> <span></span> <span></span>
 			</div>
 		</div>
 	)

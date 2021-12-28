@@ -1,32 +1,32 @@
 .downDown{
-    position: relative;
-    transform: translate(1%,10%);
+  position: relative;
+  transform: translate(1%,10%);
 }
 .downDown span{
     display: inline-flex;
-    margin-right: 15px;
-    width: 30px;
-    height: 30px;
-    border-bottom: 5px solid seagreen;
-    border-right: 5px solid seagreen;
+    margin-right: 25px;
+    width: 45px;
+    height: 45px;
+    border-bottom: 10px solid seagreen;
+    border-right: 10px solid seagreen;
     transform: rotate(45deg);
-    animation: animateDown 1s normal infinite;
+    animation: animateDown 1.5s normal infinite;
 }
 .downDown span:nth-child{
-    animation: animateDown 1s normal infinite -1s;
+    animation: animateDown 1.5s normal infinite -1.5s;
 }
 
 @keyframes animateDown {
     0%{
         opacity: 0;
-        transform: rotate(45deg) translate(-30rem,-30rem);
+        transform: rotate(45deg) translate(-15rem,-15rem);
     }
     50%{
         opacity: 1;
     }
     100%{
         opacity: 0;
-        transform: rotate(45deg) translate(5rem,5rem);
+        transform: rotate(45deg) translate(15rem,15rem);
     }
 }
 
@@ -36,93 +36,93 @@
 }
 .downUp span{
     display: inline-flex;
-    margin-right: 15px;
-    width: 30px;
-    height: 30px;
-    border-bottom: 5px solid seagreen;
-    border-right: 5px solid seagreen;
+    margin-right: 25px;
+    width: 45px;
+    height: 45px;
+    border-bottom: 10px solid seagreen;
+    border-right: 10px solid seagreen;
     transform: rotate(45deg);
-    animation: animateDownUp 1s normal infinite;
+    animation: animateDownUp 1.5s normal infinite;
 }
 .downUp span:nth-child{
-    animation: animateDownUp 1s normal infinite -1s;
+    animation: animateDownUp 1.5s normal infinite -1.5s;
 }
 
 @keyframes animateDownUp {
     0%{
         opacity: 0;
-        transform: rotate(45deg) translate(20rem,20rem);
+        transform: rotate(45deg) translate(15rem,15rem);
     }
     50%{
         opacity: 1;
     }
     100%{
         opacity: 0;
-        transform: rotate(45deg) translate(-30rem,-30rem);
+        transform: rotate(45deg) translate(-15rem,-15rem);
     }
 }
 
 .downLeft{
     position: relative;
-    transform: translate(1%,-880%);
+    transform: translate(1%,-680%);
+    display: inline-flex;
 }
 .downLeft span{
-    display: inline-flex;
-    margin-right: 15px;
-    width: 30px;
-    height: 30px;
-    border-bottom: 5px solid seagreen;
-    border-right: 5px solid seagreen;
+    margin-right: 25px;
+    width: 45px;
+    height: 45px;
+    border-bottom: 10px solid seagreen;
+    border-right: 10px solid seagreen;
     transform: rotate(45deg);
-    animation: animateDownLeft 1s normal infinite;
+    animation: animateDownLeft 1.5s normal infinite;
 }
 .downLeft span:nth-child{
-    animation: animateDownLeft 1s normal infinite -1s;
+    animation: animateDownLeft 1.5s normal infinite -1.5s;
 }
 
 @keyframes animateDownLeft {
     0%{
         opacity: 0;
-        transform: rotate(45deg) translate(30rem,-30rem);
+        transform: rotate(45deg) translate(15rem,-15rem);
     }
     50%{
         opacity: 1;
     }
     100%{
         opacity: 0;
-        transform: rotate(45deg) translate(-30rem,30rem);
+        transform: rotate(45deg) translate(-15rem,15rem);
     }
 }
 
 .downRight{
     position: relative;
-    transform: translate(1%,-880%);
+    transform: translate(1%,-620%);
 }
 .downRight span{
     display: inline-flex;
-    margin-right: 15px;
-    width: 30px;
-    height: 30px;
-    border-bottom: 5px solid seagreen;
-    border-right: 5px solid seagreen;
+    margin-right: 25px;
+    width: 45px;
+    height: 45px;
+    border-bottom: 10px solid seagreen;
+    border-right: 10px solid seagreen;
     transform: rotate(45deg);
-    animation: animateDownRight 1s normal infinite;
+    animation: animateDownRight 1.5s normal infinite;
 }
 .downRight span:nth-child{
-    animation: animateDownRight 1s normal infinite -1s;
+    animation: animateDownRight 1.5s normal infinite -1.5s;
 }
 
 @keyframes animateDownRight {
     0%{
         opacity: 0;
-        transform: rotate(45deg) translate(-30rem,30rem);
+        transform: rotate(45deg) translate(-15rem,15rem);
     }
     50%{
         opacity: 1;
     }
     100%{
         opacity: 0;
-        transform: rotate(45deg) translate(30rem,-30rem);
+        transform: rotate(45deg) translate(15rem,-15rem);
     }
 }
 
@@ -133,29 +133,29 @@
 }
 .downDown2 span{
     display: inline-flex;
-    margin-right: 15px;
-    width: 30px;
-    height: 30px;
-    border-bottom: 5px solid orangered;
-    border-right: 5px solid orangered;
+    margin-right: 25px;
+    width: 45px;
+    height: 45px;
+    border-bottom: 10px solid orangered;
+    border-right: 10px solid orangered;
     transform: rotate(45deg);
-    animation: animateDown 1s normal infinite;
+    animation: animateDown2 1.5s normal infinite;
 }
 .downDown2 span:nth-child{
-    animation: animateDown 1s normal infinite -1s;
+    animation: animateDown2 1.5s normal infinite -1.5s;
 }
 
-@keyframes animateDown {
+@keyframes animateDown2 {
     0%{
         opacity: 0;
-        transform: rotate(45deg) translate(-30rem,-30rem);
+        transform: rotate(45deg) translate(-15rem,-15rem);
     }
     50%{
         opacity: 1;
     }
     100%{
         opacity: 0;
-        transform: rotate(45deg) translate(5rem,5rem);
+        transform: rotate(45deg) translate(15rem,15rem);
     }
 }
 
@@ -165,95 +165,124 @@
 }
 .downUp2 span{
     display: inline-flex;
-    margin-right: 15px;
-    width: 30px;
-    height: 30px;
-    border-bottom: 5px solid orangered;
-    border-right: 5px solid orangered;
+    margin-right: 25px;
+    width: 45px;
+    height: 45px;
+    border-bottom: 10px solid orangered;
+    border-right: 10px solid orangered;
     transform: rotate(45deg);
-    animation: animateDownUp 1s normal infinite;
+    animation: animateDownUp 1.5s normal infinite;
 }
 .downUp2 span:nth-child{
-    animation: animateDownUp 1s normal infinite -1s;
+    animation: animateDownUp 1.5s normal infinite -1.5s;
 }
 
 @keyframes animateDownUp {
     0%{
         opacity: 0;
-        transform: rotate(45deg) translate(20rem,20rem);
+        transform: rotate(45deg) translate(15rem,15rem);
     }
     50%{
         opacity: 1;
     }
     100%{
         opacity: 0;
-        transform: rotate(45deg) translate(-30rem,-30rem);
+        transform: rotate(45deg) translate(-15rem,-15rem);
     }
 }
 
 .downLeft2{
     position: relative;
-    transform: translate(1%,-880%);
+    transform: translate(1%,-620%);
 }
 .downLeft2 span{
     display: inline-flex;
-    margin-right: 15px;
-    width: 30px;
-    height: 30px;
-    border-bottom: 5px solid orangered;
-    border-right: 5px solid orangered;
+    margin-right: 25px;
+    width: 45px;
+    height: 45px;
+    border-bottom: 10px solid orangered;
+    border-right: 10px solid orangered;
     transform: rotate(45deg);
-    animation: animateDownLeft 1s normal infinite;
+    animation: animateDownLeft2 1.5s normal infinite;
 }
 .downLeft2 span:nth-child{
-    animation: animateDownLeft 1s normal infinite -1s;
+    animation: animateDownLeft2 1.5s normal infinite -1.5s;
 }
 
-@keyframes animateDownLeft {
+@keyframes animateDownLeft2 {
     0%{
         opacity: 0;
-        transform: rotate(45deg) translate(30rem,-30rem);
+        transform: rotate(45deg) translate(15rem,-15rem);
     }
     50%{
         opacity: 1;
     }
     100%{
         opacity: 0;
-        transform: rotate(45deg) translate(-30rem,30rem);
+        transform: rotate(45deg) translate(-15rem,15rem);
     }
 }
 
 .downRight2{
     position: relative;
-    transform: translate(1%,-880%);
+    transform: translate(1%,-620%);
 }
 .downRight2 span{
     display: inline-flex;
-    margin-right: 15px;
-    width: 30px;
-    height: 30px;
-    border-bottom: 5px solid orangered;
-    border-right: 5px solid orangered;
+    margin-right: 25px;
+    width: 45px;
+    height: 45px;
+    border-bottom: 10px solid orangered;
+    border-right: 10px solid orangered;
     transform: rotate(45deg);
-    animation: animateDownRight 1s normal infinite;
+    animation: animateDownRight 1.5s normal infinite;
 }
 .downRight2 span:nth-child{
-    animation: animateDownRight 1s normal infinite -1s;
+    animation: animateDownRight 1.5s normal infinite -1.5s;
 }
 
 @keyframes animateDownRight {
     0%{
         opacity: 0;
-        transform: rotate(45deg) translate(-30rem,30rem);
+        transform: rotate(45deg) translate(-15rem,15rem);
     }
     50%{
         opacity: 1;
     }
     100%{
         opacity: 0;
-        transform: rotate(45deg) translate(30rem,-30rem);
+        transform: rotate(45deg) translate(15rem,-15rem);
     }
 }
 
+.downDown3{
+    position: relative;
+    transform: translate(1%,10%);
+}
+.downDown3 span{
+    display: inline-flex;
+    margin-right: 25px;
+    width: 45px;
+    height: 45px;
+    border-bottom: 10px solid darkred;
+    border-right: 10px solid darkred;
+    transform: rotate(45deg);
+    animation: animateDown3 1.5s normal infinite;
+}
+.downDown3 span:nth-child{
+    animation: animateDown3 1.5s normal infinite -1.5s;
+}
 
-
+@keyframes animateDown3 {
+    0%{
+        opacity: 0;
+        transform: rotate(45deg) translate(-15rem,-15rem);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(45deg) translate(15rem,15rem);
+    }
+}

@@ -14,10 +14,6 @@ export default function Right(move) {
 			{ArrowRight(move)}
 			{ArrowRight(move)}
 			{ArrowRight(move)}
-			{ArrowRight(move)}
-			{ArrowRight(move)}
-			{ArrowRight(move)}
-			{ArrowRight(move)}
 		</div>
 	)
 }

@@ -10,7 +10,7 @@
 .game-lost {
   display: flex;
   justify-content: center;
-  color: darkred;
+  color: indianred;
   font-size: 10rem;
   font-family: Courier, "Lucida Console", monospace;
 }

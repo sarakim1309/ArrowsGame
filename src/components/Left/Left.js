@@ -14,11 +14,6 @@ export default function Left(move) {
 			{ArrowLeft(move)}
 			{ArrowLeft(move)}
 			{ArrowLeft(move)}
-			{ArrowLeft(move)}
-			{ArrowLeft(move)}
-			{ArrowLeft(move)}
-			{ArrowLeft(move)}
-			{ArrowLeft(move)}
 		</div>
 	)
 }

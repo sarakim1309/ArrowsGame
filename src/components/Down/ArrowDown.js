@@ -9,9 +9,7 @@ export default function ArrowDown(style) {
 				<span></span> <span></span> <span></span> <span></span> <span></span>
 				<span></span> <span></span> <span></span> <span></span> <span></span>
 				<span></span> <span></span> <span></span> <span></span> <span></span>
-				<span></span> <span></span> <span></span> <span></span> <span></span>
-				<span></span> <span></span> <span></span> <span></span> <span></span>
-				<span></span> <span></span>
+				<span></span> <span></span> <span></span> 
 			</div>
 		</div>
 	)

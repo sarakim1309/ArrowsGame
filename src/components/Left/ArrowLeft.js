@@ -10,8 +10,7 @@ export default function ArrowLeft(style) {
 				<span></span> <span></span> <span></span> <span></span> <span></span>
 				<span></span> <span></span> <span></span> <span></span> <span></span>
 				<span></span> <span></span> <span></span> <span></span> <span></span>
-				<span></span> <span></span> <span></span> <span></span> <span></span>
-				<span></span> <span></span> <span></span> <span></span> <span></span>
+				<span></span> <span></span> <span></span> 
 			</div>
 		</div>
 	)
