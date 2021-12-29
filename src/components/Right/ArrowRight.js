@@ -1,17 +1,14 @@
 import React from 'react'
 import './ArrowRight.css';
 
-
-export default function ArrowRight(style) {
+export default function ArrowRight(style, width) {
+	var rows = [];
+	for (var i=0; i < width; i+=50) {
+		rows.push(<span></span>);
+	}
 	return (
-		<div>
-			<div className={style}>
-				<span></span> <span></span> <span></span> <span></span> <span></span>
-				<span></span> <span></span> <span></span> <span></span> <span></span>
-				<span></span> <span></span> <span></span> <span></span> <span></span>
-				<span></span> <span></span> <span></span> <span></span> <span></span>
-				<span></span> <span></span> 
-			</div>
+		<div className={style}>
+			{rows}
 		</div>
 	)
 }

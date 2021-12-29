@@ -1,4 +1,6 @@
 .leftDisplay{
     position: relative;
     float: right;
+    text-align: center;
+    display: flex;
 }

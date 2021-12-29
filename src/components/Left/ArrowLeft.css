@@ -1,37 +1,97 @@
-.left span{
+.left span {
     display: inline-flex;
-    margin-right: 8px;
-    margin-bottom: 25px;
-    width: 45px;
-    height: 45px;
-    border-bottom: 10px solid seagreen;
-    border-right: 10px solid seagreen;
-    transform: rotate(135deg);
+    background: seagreen;
+    height: 6px;
+    width: 40px;
+    margin-bottom: 60px;
+    margin-right: 20px;
+    position: relative;
+    transform: rotate(180deg);
 }
+  .left span:before,
+  .left span:after {
+    content: "";
+    background: seagreen;
+    position: absolute;
+    height: 5px;
+    width: 30px;
+  }
+
+  .left span:before {
+    right: -5px;
+    bottom: -8px;
+    transform: rotate(-45deg);
+  }
+
+  .left span:after {
+    right: -5px;
+    top: -8px;
+    transform: rotate(45deg);
+  }
 
 /*Second color*/
-.left2 span{
+.left2 span {
     display: inline-flex;
-    margin-right: 8px;
-    margin-bottom: 25px;
-    width: 45px;
-    height: 45px;
-    border-bottom: 10px solid orangered;
-    border-right: 10px solid orangered;
-    transform: rotate(135deg);
+    background: orangered;
+    height: 6px;
+    width: 40px;
+    margin-bottom: 60px;
+    margin-right: 20px;
+    position: relative;
+    transform: rotate(180deg);
 }
+  .left2 span:before,
+  .left2 span:after {
+    content: "";
+    background: orangered;
+    position: absolute;
+    height: 5px;
+    width: 30px;
+  }
+
+  .left2 span:before {
+    right: -5px;
+    bottom: -8px;
+    transform: rotate(-45deg);
+  }
+
+  .left2 span:after {
+    right: -5px;
+    top: -8px;
+    transform: rotate(45deg);
+  }
 
 /*Third color*/
-.left3 span{
+.left3 span {
     display: inline-flex;
-    margin-right: 8px;
-    margin-bottom: 25px;
-    width: 45px;
-    height: 45px;
-    border-bottom: 10px solid darkred;
-    border-right: 10px solid darkred;
-    transform: rotate(135deg);
+    background: darkred;
+    height: 6px;
+    width: 40px;
+    margin-bottom: 60px;
+    margin-right: 20px;
+    position: relative;
+    transform: rotate(180deg);
 }
+  .left3 span:before,
+  .left3 span:after {
+    content: "";
+    background: darkred;
+    position: absolute;
+    height: 5px;
+    width: 30px;
+  }
+
+  .left3 span:before {
+    right: -5px;
+    bottom: -8px;
+    transform: rotate(-45deg);
+  }
+
+  .left3 span:after {
+    right: -5px;
+    top: -8px;
+    transform: rotate(45deg);
+  }
 
 .lLeft {
     animation: animateLeft 1.5s infinite;

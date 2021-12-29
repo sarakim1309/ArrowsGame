@@ -1,4 +1,6 @@
 .downDisplay{
     position: relative;
-    float: right;
+    float: left;
+    text-align: center;
+    display: flex;
 }

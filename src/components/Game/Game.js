@@ -5,6 +5,7 @@ import Right from '../Right/Right.js';
 import Up from '../Up/Up.js';
 import Left from '../Left/Left.js';
 import Down from '../Down/Down.js';
+import useWindowDimensions from '../Dimensions.js'
 
 function initState () {
 	return {
@@ -114,17 +115,16 @@ export default function Game() {
 	let actionMade = false
 	const handleKey = (e) => {
 		if(r !== 3) {
-			if (dir === 3 && (e.which !== Keys.Left && e.which !== Keys.a)) {  // left /a
+			if (dir === 3 && (e.which !== Keys.Left && e.which !== Keys.a)) {
 				lostState = true
 			}
-			else if (dir === 1 && (e.which !== Keys.Right && e.which !== Keys.d)) {  // right /d
+			else if (dir === 1 && (e.which !== Keys.Right && e.which !== Keys.d)) {
 				lostState = true
 			}
-			else if (dir === 2 && (e.which !== Keys.Up && e.which !== Keys.w)) {  // up /w
+			else if (dir === 2 && (e.which !== Keys.Up && e.which !== Keys.w)) {
 				lostState = true
 			}
-			else if (dir === 4 && (e.which !== Keys.Down && e.which !== Keys.s)) {  // down /s
-				// console.log(dir, e.which)
+			else if (dir === 4 && (e.which !== Keys.Down && e.which !== Keys.s)) {
 				lostState = true
 			}
 		}
@@ -137,97 +137,98 @@ export default function Game() {
 	}
 
 	let move = 0
+	const { height, width } = useWindowDimensions();
 	const drawDirection = () => {
 		//COLOR VERDE
 		if(state.color === 1) {
 			if (state.direction === 1) {
-				if(state.score < 5) { component = Right("right rRight") } 
+				if(state.score < 5) { component = Right("right rRight", height, width) } 
 				else {
 					move = Math.floor(Math.random() * 4 + 1)
-					if(move === 1) { component = Right("right rRight") } 
-					else if (move === 2) { component = Right("right rLeft") }
-					else if (move === 3) { component = Right("right rUp") } 
-					else if (move === 4) { component = Right("right rDown")	}
+					if(move === 1) { component = Right("right rRight", height, width) } 
+					else if (move === 2) { component = Right("right rLeft", height, width) }
+					else if (move === 3) { component = Right("right rUp", height, width) } 
+					else if (move === 4) { component = Right("right rDown", height, width)	}
 				}
 			} else if (state.direction === 2) {
-				if(state.score < 5) { component = Up("up uUp") } 
+				if(state.score < 5) { component = Up("up uUp", height, width) } 
 				else {
 					move = Math.floor(Math.random() * 4 + 1)
-					if(move === 1) { component = Up("up uUp") } 
-					else if (move === 2) { component = Up("up uLeft") } 
-					else if (move === 3) { component = Up("up uRight") } 
-					else if (move === 4) { component = Up("up uDown") }
+					if(move === 1) { component = Up("up uUp", height, width) } 
+					else if (move === 2) { component = Up("up uLeft", height, width) } 
+					else if (move === 3) { component = Up("up uRight", height, width) } 
+					else if (move === 4) { component = Up("up uDown", height, width) }
 				} 
 			} else if (state.direction === 3) {
-				if(state.score < 5) { component = Left("left lLeft") } 
+				if(state.score < 5) { component = Left("left lLeft", height, width) } 
 				else {
 					move = Math.floor(Math.random() * 4 + 1)
-					if(move === 1) { component = Left("left lLeft") } 
-					else if (move === 2) { component = Left("left rRight") } 
-					else if (move === 3) { component = Left("left dDown") } 
-					else if (move === 4) { component = Left("left uUp") }
+					if(move === 1) { component = Left("left lLeft", height, width) } 
+					else if (move === 2) { component = Left("left rRight", height, width) } 
+					else if (move === 3) { component = Left("left dDown", height, width) } 
+					else if (move === 4) { component = Left("left uUp", height, width) }
 				} 
 			} else if (state.direction === 4) {
-				if(state.score < 5) { component = Down("down dDown") } 
+				if(state.score < 5) { component = Down("down dDown", height, width) } 
 				else {
 					move = Math.floor(Math.random() * 4 + 1)
-					if(move === 1) { component = Down("down dDown") } 
-					else if (move === 2) { component = Down("down dLeft") } 
-					else if (move === 3) { component = Down("down dUp") } 
-					else if (move === 4) { component = Down("down dRight") }
+					if(move === 1) { component = Down("down dDown", height, width) } 
+					else if (move === 2) { component = Down("down dLeft", height, width) } 
+					else if (move === 3) { component = Down("down dUp", height, width) } 
+					else if (move === 4) { component = Down("down dRight", height, width) }
 				} 
 			}
 		// COLOR NARANJA
 		} else if(state.color === 2) {
 			if (state.direction === 1) {
 				move = Math.floor(Math.random() * 4 + 1)
-				if(move === 1) { component = Right("right2 rRight") } 
-				else if (move === 2) { component = Left("left2 lRight") } 
-				else if (move === 3) { component = Up("up2 uRight") } 
-				else if (move === 4) { component = Down("down2 dRight") }
+				if(move === 1) { component = Right("right2 rRight", height, width) } 
+				else if (move === 2) { component = Left("left2 lRight", height, width) } 
+				else if (move === 3) { component = Up("up2 uRight", height, width) } 
+				else if (move === 4) { component = Down("down2 dRight", height, width) }
 			} else if (state.direction === 2) {
 				move = Math.floor(Math.random() * 4 + 1)
-				if(move === 1) { component = Up("up2 uUp") } 
-				else if (move === 2) { component = Left("left2 lUp") } 
-				else if (move === 3) { component = Right("right2 rUp") } 
-				else if (move === 4) { component = Down("down2 dUp") } 
+				if(move === 1) { component = Up("up2 uUp", height, width) } 
+				else if (move === 2) { component = Left("left2 lUp", height, width) } 
+				else if (move === 3) { component = Right("right2 rUp", height, width) } 
+				else if (move === 4) { component = Down("down2 dUp", height, width) } 
 			} else if (state.direction === 3) {
 				move = Math.floor(Math.random() * 4 + 1)
-				if(move === 1) { component = Left("left2 lLeft") } 
-				else if (move === 2) { component = Right("right2 rLeft") } 
-				else if (move === 3) { component = Down("down2 dLeft") } 
-				else if (move === 4) { component = Up("up2 uLeft") } 
+				if(move === 1) { component = Left("left2 lLeft", height, width) } 
+				else if (move === 2) { component = Right("right2 rLeft", height, width) } 
+				else if (move === 3) { component = Down("down2 dLeft", height, width) } 
+				else if (move === 4) { component = Up("up2 uLeft", height, width) } 
 			} else if (state.direction === 4) {
 				move = Math.floor(Math.random() * 4 + 1)
-				if(move === 1) { component = Down("down2 dDown") } 
-				else if (move === 2) { component = Left("left2 lDown") } 
-				else if (move === 3) { component = Up("up2 uDown") } 
-				else if (move === 4) { component = Right("right2 rDown") }
+				if(move === 1) { component = Down("down2 dDown", height, width) } 
+				else if (move === 2) { component = Left("left2 lDown", height, width) } 
+				else if (move === 3) { component = Up("up2 uDown", height, width) } 
+				else if (move === 4) { component = Right("right2 rDown", height, width) }
 			}
 		//COLOR ROJO
 		} else if(state.color === 3) {
 			move = Math.floor(Math.random() * 4 + 1)
-			if (move === 1) { component = Right("right3 rRight")} 
-			else if (move === 2) { component = Up("up3 uUp")} 
-			else if (move === 3) { component = Left("left3 lLeft")} 
-			else if (move === 4) { component = Down("down3 dDown")}
+			if (move === 1) { component = Right("right3 rRight", height, width)} 
+			else if (move === 2) { component = Up("up3 uUp", height, width)} 
+			else if (move === 3) { component = Left("left3 lLeft", height, width)} 
+			else if (move === 4) { component = Down("down3 dDown", height, width)}
 		}
 		return (
 			<div> {component} </div>
-			// <div> {Up("up2 uRight")} </div>
+			// <div> {Down("down dDown", height, width)} </div>
 		)
 	}
 
 	return (
 		<div>
-		    <div className="info"> 
-        		<h4 className="score">SCORE: {state.score} </h4>
-     	 	</div>
-     	 	{state.lost && 
-            <div className="game-lost">
-            	You lost🤡️!
-            </div>}
-            { drawDirection() }
+			<div className="info"> 
+				<h4 className="score">SCORE: {state.score} </h4>
+			</div>
+			{state.lost && 
+			<div className="game-lost">
+				You lost🤡️!
+			</div>}
+			{ drawDirection() }
 		</div>
 	)
 }

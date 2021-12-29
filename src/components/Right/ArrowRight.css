@@ -1,37 +1,94 @@
-.right span{
-    transform: rotate(315deg);
+.right span {
     display: inline-flex;
-    margin-right: 10px;
-    margin-bottom: 25px;
-    width: 45px;
-    height: 45px;
-    border-bottom: 10px solid seagreen;
-    border-right: 10px solid seagreen;
+    background: seagreen;
+    height: 6px;
+    width: 40px;
+    margin-bottom: 60px;
+    margin-right: 20px;
+    position: relative;
 }
+  .right span:before,
+  .right span:after {
+    content: "";
+    background: seagreen;
+    position: absolute;
+    height: 5px;
+    width: 30px;
+  }
+
+  .right span:before {
+    right: -5px;
+    bottom: -8px;
+    transform: rotate(-45deg);
+  }
+
+  .right span:after {
+    right: -5px;
+    top: -8px;
+    transform: rotate(45deg);
+  }
 
 /*Second color*/
-.right2 span{
-    transform: rotate(315deg);
+.right2 span {
     display: inline-flex;
-    margin-right: 10px;
-    margin-bottom: 25px;
-    width: 45px;
-    height: 45px;
-    border-bottom: 10px solid orangered;
-    border-right: 10px solid orangered;
+    background: orangered;
+    height: 6px;
+    width: 40px;
+    margin-bottom: 60px;
+    margin-right: 20px;
+    position: relative;
 }
+  .right2 span:before,
+  .right2 span:after {
+    content: "";
+    background: orangered;
+    position: absolute;
+    height: 5px;
+    width: 30px;
+  }
+
+  .right2 span:before {
+    right: -5px;
+    bottom: -8px;
+    transform: rotate(-45deg);
+  }
+
+  .right2 span:after {
+    right: -5px;
+    top: -8px;
+    transform: rotate(45deg);
+  }
 
 /*Third color*/
-.right3 span{
-    transform: rotate(315deg);
+.right3 span {
     display: inline-flex;
-    margin-right: 10px;
-    margin-bottom: 25px;
-    width: 45px;
-    height: 45px;
-    border-bottom: 10px solid darkred;
-    border-right: 10px solid darkred;
+    background: darkred;
+    height: 6px;
+    width: 40px;
+    margin-bottom: 60px;
+    margin-right: 20px;
+    position: relative;
 }
+  .right3 span:before,
+  .right3 span:after {
+    content: "";
+    background: darkred;
+    position: absolute;
+    height: 5px;
+    width: 30px;
+  }
+
+  .right3 span:before {
+    right: -5px;
+    bottom: -8px;
+    transform: rotate(-45deg);
+  }
+
+  .right3 span:after {
+    right: -5px;
+    top: -8px;
+    transform: rotate(45deg);
+  }
 
 .rRight {
     animation: animateRight 1.5s infinite;
