@@ -8,15 +8,20 @@ function HomePage() {
   const handleClick = () =>{
     navigate("/Game");
   }
+
+  const Rules = () => {
+    navigate("/Rules")
+  }
   return (
-    <div className= "HP"> ReactIonGame
-        <div className="HP-text">
-            <button type="button" className="btn btn-primary btn-lg startSize" onClick={handleClick}>Start</button>
+    <div className= "title"> ReactIonGame
+        <div className="HP">
+          <div className="HP-arrows"></div>
+          <div className="HP-arrows"></div>
         </div>
-{/*        <div className="HP-text">
-            <button type="button" class="btn btn-primary btn-lg startSize" onClick={handleClick}>Reglas</button>
-        </div>*/}
-        <div className="arrows"></div>
+        <div className="HP-buttons">
+          <button type="button" className="btn btn-primary btn-lg startSize" onClick={handleClick}>Start</button>
+          <button type="button" className="btn btn-primary btn-lg startSize" onClick={Rules}>Rules</button>
+        </div>
     </div>
   );
 }

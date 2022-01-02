@@ -1,57 +1,54 @@
-.HP {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    float: right;
-    color: white;
-    font-size: 5rem;
-    margin-bottom: 5%;
-    font-family: Courier, "Lucida Console", monospace
+.title {
+  position: relative;
+  text-align: center;
+  color: steelblue;
+  font-size: 5rem;
+  font-family: Courier, "Lucida Console", monospace, cursive;
 }
 
-.HP-text {
-    justify-content: center;
-    align-items: center;
+.HP-buttons {
+  justify-content: center;
+  align-items: center;
 }
 
 .startSize{
-    padding: 1rem 3rem;
-    margin-top: 15%;
+  padding: 1rem 3rem;
+  margin-right: 10%;
+  margin-left: 8%;
+  margin-top: 5%;
+  position: relative;
 }
 
-  .arrows {
-   position: relative;
-  /**/
-   position: absolute;
-   float: right;
-   top: 45%;
-   left: 48%;
-   width: 80px;
-  /**/
-   height: 80px;
-   transform: translate(-50%, -50%);
+.HP {
+  position: relative;
 }
-  .arrows:before {
-   content: '';
-   position: absolute;
-   width: 100%;
-   height: 100%;
-   border-left: 26.6666666667px solid rgba(0, 0, 0, 0.7);
-   border-bottom: 26.6666666667px solid rgba(0, 0, 0, 0.7);
-   transform: translate(26.6666666667px, 106.6666666667px) rotate(-45deg);
-   animation: arrows 3s linear infinite;
+
+.HP-arrows { margin-top: 5%; position: relative; width: 80px; height: 80px;
+ display: inline-flex; margin-right: 12%; margin-left: 12%; }
+
+.HP-arrows:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-left: 26.6666666667px solid rgba(0, 0, 0, 0.7);
+  border-bottom: 26.6666666667px solid rgba(0, 0, 0, 0.7);
+  transform: translate(26.6666666667px, 106.6666666667px) rotate(-45deg);
+  animation: HP-arrows 3s linear infinite;
 }
-  .arrows:after {
-   content: '';
-   position: absolute;
-   width: 100%;
-   height: 100%;
-   border-left: 26.6666666667px solid rgba(0, 0, 0, 0.7);
-   border-bottom: 26.6666666667px solid rgba(0, 0, 0, 0.7);
-   transform: translate(53.3333333333px, 0px) rotate(-45deg);
-   animation: arrows 3s linear infinite -1.5s;
+
+.HP-arrows:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-left: 26.6666666667px solid rgba(0, 0, 0, 0.7);
+  border-bottom: 26.6666666667px solid rgba(0, 0, 0, 0.7);
+  transform: translate(53.3333333333px, 0px) rotate(-45deg);
+  animation: HP-arrows 3s linear infinite -1.5s;
 }
- @keyframes arrows {
+
+@keyframes HP-arrows {
    0% {
      border-left: 26.6666666667px solid rgba(0, 0, 0, 0);
      border-bottom: 26.6666666667px solid rgba(0, 0, 0, 0);

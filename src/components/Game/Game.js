@@ -1,19 +1,29 @@
 import {useEffect, useState, useRef, useReducer, React} from 'react'
 import { useNavigate } from "react-router-dom";
 import './Game.css';
-import Right from '../Right/Right.js';
-import Up from '../Up/Up.js';
-import Left from '../Left/Left.js';
-import Down from '../Down/Down.js';
-import useWindowDimensions from '../Dimensions.js'
+import Arrows from '../Arrows/Arrows.js';
 
-function initState () {
-	return {
-		color: 1,
-		direction: 1,
-		lost: false,
-		score: 0,
-	}
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
+}
+
+function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowDimensions;
 }
 
 const Keys = {
@@ -26,6 +36,19 @@ const Keys = {
   w: 87,  // up
   s: 83,  // down
   d: 68   // right
+}
+
+const Move = [ "Right", "Up", "Left", "Down" ]
+
+const Dir = ["right", "up", "left", "down"]
+
+function initState () {
+	return {
+		color: 1,
+		direction: 1,
+		lost: false,
+		score: 0,
+	}
 }
 
 const reducer = (state, action) => {
@@ -42,6 +65,15 @@ const reducer = (state, action) => {
 				...state,
 				...action.newState
 			}
+		case 'restart':
+			console.log('update state', state); 
+			return {
+				...state,
+				color: 1,
+				direction: 3,
+				lost: false,
+				score: 0,
+			}
 		default: {
 			return state;
 		}
@@ -49,10 +81,10 @@ const reducer = (state, action) => {
 }
 
 export default function Game() {
-	const [state, dispatch] = useReducer(reducer,initState()); 
+	const [state, dispatch] = useReducer(reducer,initState());
 	let { direction, lost, score } = state;
 	// console.log("state: ", state);
-	
+
 	let interval = null;
 	const UseTimeout = (fn, timeout) => {
 		interval = setTimeout(fn, timeout);
@@ -69,6 +101,7 @@ export default function Game() {
 	let component = null
 	let count = 0
 	let nextState = null
+
 	const gameLoop = () => {
 		let lastR = 0;
 		lastR = r
@@ -90,7 +123,13 @@ export default function Game() {
 			return;
 		}
 		actionMade = false
-		UseTimeout(gameLoop, 1500);
+		if(count > 20) {
+			UseTimeout(gameLoop, 1000);
+		} else if(count > 15) {
+			UseTimeout(gameLoop, 1250);
+		} else {
+			UseTimeout(gameLoop, 1500);
+		}
 	}
 
 	let dir = 1;
@@ -139,83 +178,62 @@ export default function Game() {
 	let move = 0
 	const { height, width } = useWindowDimensions();
 	const drawDirection = () => {
-		//COLOR VERDE
+		console.log(state.lost)
+		move = Math.floor(Math.random() * 3)
+		let move2 = Math.floor(Math.random() * 3)
+		//COLOR GREEN
 		if(state.color === 1) {
 			if (state.direction === 1) {
-				if(state.score < 5) { component = Right("right rRight", height, width) } 
-				else {
-					move = Math.floor(Math.random() * 4 + 1)
-					if(move === 1) { component = Right("right rRight", height, width) } 
-					else if (move === 2) { component = Right("right rLeft", height, width) }
-					else if (move === 3) { component = Right("right rUp", height, width) } 
-					else if (move === 4) { component = Right("right rDown", height, width)	}
+				if(state.score < 4) {
+					component = "right green Right"
+				} else {
+					component = "right green " + Move[move]
 				}
 			} else if (state.direction === 2) {
-				if(state.score < 5) { component = Up("up uUp", height, width) } 
-				else {
-					move = Math.floor(Math.random() * 4 + 1)
-					if(move === 1) { component = Up("up uUp", height, width) } 
-					else if (move === 2) { component = Up("up uLeft", height, width) } 
-					else if (move === 3) { component = Up("up uRight", height, width) } 
-					else if (move === 4) { component = Up("up uDown", height, width) }
-				} 
+				if(state.score < 4) {
+					component = "up green Up" 
+				} else {
+					component = "up green " + Move[move] 
+				}
 			} else if (state.direction === 3) {
-				if(state.score < 5) { component = Left("left lLeft", height, width) } 
-				else {
-					move = Math.floor(Math.random() * 4 + 1)
-					if(move === 1) { component = Left("left lLeft", height, width) } 
-					else if (move === 2) { component = Left("left rRight", height, width) } 
-					else if (move === 3) { component = Left("left dDown", height, width) } 
-					else if (move === 4) { component = Left("left uUp", height, width) }
-				} 
+				if(state.score < 4) {
+					component = "left green Left"
+				} else {
+					component = "left green " + Move[move]
+				}
 			} else if (state.direction === 4) {
-				if(state.score < 5) { component = Down("down dDown", height, width) } 
-				else {
-					move = Math.floor(Math.random() * 4 + 1)
-					if(move === 1) { component = Down("down dDown", height, width) } 
-					else if (move === 2) { component = Down("down dLeft", height, width) } 
-					else if (move === 3) { component = Down("down dUp", height, width) } 
-					else if (move === 4) { component = Down("down dRight", height, width) }
-				} 
+				if(state.score < 4) {
+					component = "down green Down" 
+				} else {
+					component = "down green " + Move[move]
+				}
 			}
-		// COLOR NARANJA
+		// COLOR ORANGE
 		} else if(state.color === 2) {
 			if (state.direction === 1) {
-				move = Math.floor(Math.random() * 4 + 1)
-				if(move === 1) { component = Right("right2 rRight", height, width) } 
-				else if (move === 2) { component = Left("left2 lRight", height, width) } 
-				else if (move === 3) { component = Up("up2 uRight", height, width) } 
-				else if (move === 4) { component = Down("down2 dRight", height, width) }
+				component = Dir[move] + " orange Right" 
 			} else if (state.direction === 2) {
-				move = Math.floor(Math.random() * 4 + 1)
-				if(move === 1) { component = Up("up2 uUp", height, width) } 
-				else if (move === 2) { component = Left("left2 lUp", height, width) } 
-				else if (move === 3) { component = Right("right2 rUp", height, width) } 
-				else if (move === 4) { component = Down("down2 dUp", height, width) } 
+				component = Dir[move] + " orange Up" 
 			} else if (state.direction === 3) {
-				move = Math.floor(Math.random() * 4 + 1)
-				if(move === 1) { component = Left("left2 lLeft", height, width) } 
-				else if (move === 2) { component = Right("right2 rLeft", height, width) } 
-				else if (move === 3) { component = Down("down2 dLeft", height, width) } 
-				else if (move === 4) { component = Up("up2 uLeft", height, width) } 
+				component = Dir[move] + " orange Left" 
 			} else if (state.direction === 4) {
-				move = Math.floor(Math.random() * 4 + 1)
-				if(move === 1) { component = Down("down2 dDown", height, width) } 
-				else if (move === 2) { component = Left("left2 lDown", height, width) } 
-				else if (move === 3) { component = Up("up2 uDown", height, width) } 
-				else if (move === 4) { component = Right("right2 rDown", height, width) }
+				component = Dir[move] + " orange Down" 
 			}
-		//COLOR ROJO
+		//COLOR RED
 		} else if(state.color === 3) {
-			move = Math.floor(Math.random() * 4 + 1)
-			if (move === 1) { component = Right("right3 rRight", height, width)} 
-			else if (move === 2) { component = Up("up3 uUp", height, width)} 
-			else if (move === 3) { component = Left("left3 lLeft", height, width)} 
-			else if (move === 4) { component = Down("down3 dDown", height, width)}
+			if (move === 1) { 
+				component = "right red" + Move[move2]
+			} else if (move === 2) { 
+				component = "up red" + Move[move2]
+			} else if (move === 3) { 
+				component = "left red" + Move[move2]
+			} else if (move === 4) { 
+				component = "down red" + Move[move2]
+			}
 		}
 		return (
-			<div> {component} </div>
-			// <div> {Down("down dDown", height, width)} </div>
+			<div> {Arrows("arrows "+ component, height, width)} </div>
+			// <div> {Arrows("arrow up green Up", height, width)} </div>
 		)
 	}
 
@@ -232,3 +250,14 @@ export default function Game() {
 		</div>
 	)
 }
+
+{/*<button type="button" className="btn btn-primary btn-lg tryAgain" onClick={tryAgain}>Go Back</button>*/}
+	// const tryAgain = () => {
+	// 	if(state.lost) {
+	// 		lostState = false;
+	//     console.log('restarting: ->', state.lost);
+	//     dispatch({type:'restart'});
+	//     console.log('restarting: <-', state.lost);
+	// 		UseTimeout(gameLoop, 1500);
+	// 	}
+	// }

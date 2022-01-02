@@ -1,0 +1,34 @@
+.R-title {
+  position: relative;
+  text-align: center;
+  color: steelblue;
+  font-size: 5rem;
+  font-family: Courier, "Lucida Console", monospace, cursive;
+}
+
+.rules {
+	text-align: center;
+	font-size: large;
+	font-family: Courier, "Lucida Console", monospace, cursive; 
+	font-size: 22px; 
+	text-shadow: 1px 0 0 white;
+}
+
+. {
+  color: seagreen;
+}
+
+.orange {
+  color: orangered;
+}
+
+.red {
+  color: darkred;
+}
+
+.goBack {
+	position: relative;
+	text-align: center;
+	padding: 1rem 3rem;
+	margin-left: 43%;
+}

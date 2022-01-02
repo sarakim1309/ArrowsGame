@@ -1,5 +1,4 @@
 .score {
-  position: absolute;
   left: 0;
   top: 0;
   padding: 0.5%;
@@ -13,5 +12,11 @@
   color: indianred;
   font-size: 10rem;
   font-family: Courier, "Lucida Console", monospace;
+}
+
+.tryAgain{
+  position: absolute;
+  margin-top: 20%;
+  padding: 1rem 3rem;
 }
 
