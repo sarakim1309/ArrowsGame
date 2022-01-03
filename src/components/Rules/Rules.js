@@ -30,7 +30,13 @@ export default function Rules() {
 				And if you see a<span style={{color: 'darkred'}}> red</span> one, <b>don't do anything</b>.
 			</p>
 			<p className="rules">
-				Each arrow lasts 1.5 seconds, but the more ponints you get, the faster it will go.
+				There's an easy mode where the different types of arrows are added gradually.
+			</p>
+			<p className="rules">
+				In that mode, each arrow lasts 1.5 seconds, but the more ponints you get, the faster it will go.
+			</p>
+			<p className="rules">
+				There's also a difficult mode where the different types of arrows are fast from the beggining.
 			</p>
 			<p className="rules">
 				It will always start to the right, so at least you should score 1.

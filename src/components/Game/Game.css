@@ -1,22 +1,23 @@
 .score {
-  left: 0;
-  top: 0;
-  padding: 0.5%;
-  font-weight: bold;
-  font-family: Courier, "Lucida Console", monospace;
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding: 0.5%;
+	font-weight: bold;
+	font-family: Courier, "Lucida Console", monospace;
 }
 
 .game-lost {
-  display: flex;
-  justify-content: center;
-  color: indianred;
-  font-size: 10rem;
-  font-family: Courier, "Lucida Console", monospace;
+	display: flex;
+	justify-content: center;
+	color: indianred;
+	font-size: 10rem;
+	font-family: Courier, "Lucida Console", monospace;
 }
 
 .tryAgain{
-  position: absolute;
-  margin-top: 20%;
-  padding: 1rem 3rem;
+	position: absolute;
+	margin-top: 20%;
+	padding: 1rem 3rem;
 }
 

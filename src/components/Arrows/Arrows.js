@@ -3,7 +3,7 @@ import './Arrows.css';
 
 export default function Arrows(style, height, width) {
 	var rows = [];
-	console.log(Math.floor(width/60), width)
+	console.log(style)
 	for (var i=0; i < Math.floor(height/66); i++) {
 		rows.push(Arrow(style, width));
 	}

@@ -1,6 +1,6 @@
 import {useEffect, useState, useRef, useReducer, React} from 'react'
 import { useNavigate } from "react-router-dom";
-import './Game.css';
+import '../Game/Game.css';
 import Arrows from '../Arrows/Arrows.js';
 
 function getWindowDimensions() {
@@ -38,12 +38,11 @@ const Keys = {
 	d: 68   // right
 }
 
-const Move = [ "Right", "Up", "Left", "Down"]
+const Move = [ "Right", "Up", "Left", "Down" ]
 
 const Dir = ["right", "up", "left", "down"]
 
 const Color = [" green ", " orange ", " red "]
-
 
 function initState () {
 	return {
@@ -94,7 +93,7 @@ export default function Game() {
 	}
 
 	useEffect(() => {
-		UseTimeout(gameLoop, 1500);
+		UseTimeout(gameLoop, 1000);
 		document.addEventListener('keydown', handleKey);
 		return function cleanup() {
 			document.removeEventListener('keydown', handleKey);
@@ -126,13 +125,7 @@ export default function Game() {
 			return;
 		}
 		actionMade = false
-		if(count > 20) {
-			UseTimeout(gameLoop, 1000);
-		} else if(count > 15) {
-			UseTimeout(gameLoop, 1250);
-		} else {
-			UseTimeout(gameLoop, 1500);
-		}
+		UseTimeout(gameLoop, 1000);
 	}
 
 	let dir = 1;
@@ -142,14 +135,13 @@ export default function Game() {
 	}
 
 	let r = 1;
+	let prevColor = 1;
 	const nextColor = () => {
-		if(count > 15) {
-			r = Math.floor(Math.random() * 3 + 1)
-		} else if(count > 10) {
-			r = Math.floor(Math.random() * 2 + 1)
-		} else {
-			r = 1
+		r = Math.floor(Math.random() * 3 + 1)
+		if (prevColor === 3) {
+			r = Math.floor(Math.random() * 2 + 1)	
 		}
+		prevColor = r
 		return r;
 	}
 
@@ -180,41 +172,15 @@ export default function Game() {
 	const drawDirection = () => {
 		move = Math.floor(Math.random() * 3)
 		let move2 = Math.floor(Math.random() * 3)
-		if (state.score < 5){
-			if (state.direction === 1) {
-				component = "right green Right"
-			} else if (state.direction === 2) {
-				component = "up green Up"
-			} else if (state.direction === 3) {
-				component = "left green Left"
-			}  else if (state.direction === 4) {
-				component = "down green Down"
-			}
-		}
-		if (state.color === 1) {
-			if (state.score < 15) {
-				component = Dir[state.direction -1] + " green " + Move[move]
-			} else if (state.score < 20) {
-				component = Dir[state.direction -1] + " green " + Move[move] + "1"
-			} else {
-				component = Dir[state.direction -1] + " green " + Move[move] + "2"
-			}
-		} else if (state.color === 2) {
-			if (state.score < 15) {
-				component = Dir[move] + " orange " + Move[state.direction -1]
-			} else if (state.score < 20) {
-				component = Dir[move] + " orange " + Move[state.direction -1] + "1"
-			} else {
-				component = Dir[move] + " orange " + Move[state.direction -1] + "2"
-			}
-		} else if (state.color === 3) {
-			if (state.score < 15) {
-				component = Dir[move] + " orange " + Move[move2]
-			} else if (state.score < 20) {
-				component = Dir[move] + " orange " + Move[move2] + "1"
-			} else {
-				component = Dir[move] + " orange " + Move[move2] + "2"
-			}
+		//COLOR GREEN
+		if(state.color === 1) {
+			component = Dir[state.direction - 1] + " green " + Move[move] + "2"
+		// COLOR ORANGE
+		} else if(state.color === 2) {
+			component = Dir[move] + " orange " + Move[state.direction - 1] + "2"
+		//COLOR RED
+		} else if(state.color === 3) {
+			component = Dir[move] + " red " + Move[move2] + "2"
 		}
 		return (
 			<div> {Arrows("arrows "+ component, height, width)} </div>

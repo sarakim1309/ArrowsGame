@@ -10,20 +10,10 @@
 	text-align: center;
 	font-size: large;
 	font-family: Courier, "Lucida Console", monospace, cursive; 
-	font-size: 22px; 
+	font-size: 20px;
 	text-shadow: 1px 0 0 white;
-}
-
-. {
-  color: seagreen;
-}
-
-.orange {
-  color: orangered;
-}
-
-.red {
-  color: darkred;
+  width: 90%;
+	margin-left: 5%;
 }
 
 .goBack {

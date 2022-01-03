@@ -1,49 +1,49 @@
 .arrowsDisplay{
-    position: relative;
-    float: right;
-    text-align: center;
-    display: flex;
+	position: relative;
+	float: right;
+	text-align: center;
+	display: flex;
 }
 
 .arrows span {
-    display: inline-flex;
-    height: 6px;
-    width: 40px;
-    margin-bottom: 60px;
-    margin-right: 20px;
-    position: relative;
+	display: inline-flex;
+	height: 6px;
+	width: 40px;
+	margin-bottom: 60px;
+	margin-right: 20px;
+	position: relative;
 }
 
 .arrows span:before, .arrows span:after {
-    content: "";
-    position: absolute;
-    height: 5px;
-    width: 30px;
+	content: "";
+	position: absolute;
+	height: 5px;
+	width: 30px;
 }
 
 .arrows span:before {
-    right: -5px;
-    bottom: -8px;
-    transform: rotate(-45deg);
+	right: -5px;
+	bottom: -8px;
+	transform: rotate(-45deg);
 }
 
 .arrows span:after {
-    right: -5px;
-    top: -8px;
-    transform: rotate(45deg);
+	right: -5px;
+	top: -8px;
+	transform: rotate(45deg);
 }
 
 /*Colors*/
 .green span, .green span:before, .green span:after {
-    background: seagreen;
+	background: seagreen;
 }
 
 .orange span, .orange span:before, .orange span:after {
-    background: orangered;
+	background: orangered;
 }
 
 .red span, .red span:before, .red span:after {
-    background: darkred;
+	background: darkred;
 }
 
 /*Directions*/
@@ -51,122 +51,122 @@
 }
 
 .up span {
-    transform: rotate(270deg);
+	transform: rotate(270deg);
 }
 
 .left span {
-    transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 
 .down span {
-    transform: rotate(90deg);
+	transform: rotate(90deg);
 }
 
 /*Speed = 1.5*/
 .Up{ 
-    animation: animateUp 1.5s infinite; 
+	animation: animateUp 1.5s infinite; 
 }
 
 .Down{ 
-    animation: animateDown 1.5s infinite; 
+	animation: animateDown 1.5s infinite; 
 }
 
 .Left{ 
-    animation: animateLeft 1.5s infinite;
+	animation: animateLeft 1.5s infinite;
 }
 
 .Right{ 
-    animation: animateRight 1.5s infinite; 
+	animation: animateRight 1.5s infinite; 
 }
 
 /*Speed = 1.25*/
 
 .Up1{ 
-    animation: animateUp 1.25s infinite; 
+	animation: animateUp 1.25s infinite; 
 }
 
 .Down1{ 
-    animation: animateDown 1.25s infinite; 
+	animation: animateDown 1.25s infinite; 
 }
 
 .Left1{ 
-    animation: animateLeft 1.25s infinite;
+	animation: animateLeft 1.25s infinite;
 }
 
 .Right1{ 
-    animation: animateRight 1.25s infinite; 
+	animation: animateRight 1.25s infinite; 
 }
 
 /*Speed = 1*/
 
 .Up2{ 
-    animation: animateUp 1s infinite; 
+	animation: animateUp 1s infinite; 
 }
 
 .Down2{ 
-    animation: animateDown 1s infinite; 
+	animation: animateDown 1s infinite; 
 }
 
 .Left2{ 
-    animation: animateLeft 1s infinite;
+	animation: animateLeft 1s infinite;
 }
 
 .Right2{ 
-    animation: animateRight 1s infinite; 
+	animation: animateRight 1s infinite; 
 }
 
 @keyframes animateUp {
-    0%{
-        opacity: 0;
-        transform: translate(0rem,15rem);
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-        transform: translate(0rem,-15rem);
-    }
+	0%{
+		opacity: 0;
+		transform: translate(0rem,15rem);
+	}
+	50%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 0;
+		transform: translate(0rem,-15rem);
+	}
 }
 
 @keyframes animateDown {
-    0%{
-        opacity: 0;
-        transform: translate(0rem,-15rem);
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-        transform: translate(0rem,15rem);
-    }
+	0%{
+		opacity: 0;
+		transform: translate(0rem,-15rem);
+	}
+	50%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 0;
+		transform: translate(0rem,15rem);
+	}
 }
 
 @keyframes animateLeft {
-    0%{
-        opacity: 0;
-        transform: translate(15rem,0rem);
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-        transform: translate(-15rem,0rem);
-    }
+	0%{
+		opacity: 0;
+		transform: translate(15rem,0rem);
+	}
+	50%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 0;
+		transform: translate(-15rem,0rem);
+	}
 }
 
 @keyframes animateRight {
-    0%{
-        opacity: 0;
-        transform: translate(-15rem,0rem);
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-        transform: translate(15rem,0rem);
-    }
+	0%{
+		opacity: 0;
+		transform: translate(-15rem,0rem);
+	}
+	50%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 0;
+		transform: translate(15rem,0rem);
+	}
 }
