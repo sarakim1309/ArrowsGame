@@ -21,3 +21,13 @@
 	padding: 1rem 3rem;
 }
 
+.lost-buttons {
+	display: flex;
+	justify-content: center;
+}
+
+.goHome {
+	padding: 1rem 3rem;
+	margin-left: 10%;
+	margin-right: 10%;
+}

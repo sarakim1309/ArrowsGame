@@ -34,7 +34,7 @@
   border-left: 26.6666666667px solid rgba(0, 0, 0, 0.7);
   border-bottom: 26.6666666667px solid rgba(0, 0, 0, 0.7);
   transform: translate(26.6666666667px, 106.6666666667px) rotate(-45deg);
-  animation: HP-arrows 3s linear infinite;
+  animation: HP-arrows 2s linear infinite;
 }
 
 .HP-arrows:after {
@@ -45,7 +45,7 @@
   border-left: 26.6666666667px solid rgba(0, 0, 0, 0.7);
   border-bottom: 26.6666666667px solid rgba(0, 0, 0, 0.7);
   transform: translate(53.3333333333px, 0px) rotate(-45deg);
-  animation: HP-arrows 3s linear infinite -1.5s;
+  animation: HP-arrows 2s linear infinite -1s;
 }
 
 @keyframes HP-arrows {

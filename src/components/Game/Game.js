@@ -44,7 +44,6 @@ const Dir = ["right", "up", "left", "down"]
 
 const Color = [" green ", " orange ", " red "]
 
-
 function initState () {
 	return {
 		color: 1,
@@ -63,18 +62,18 @@ const reducer = (state, action) => {
 				direction: 0,
 			})
 		case 'update':
-			// console.log('update state', action.newState); 
+			console.log(action.newState)
 			return {
 				...state,
 				...action.newState
 			}
 		case 'restart':
-			// console.log('update state', state); 
+		
 			return {
 				...state,
-				color: 1,
-				direction: 3,
 				lost: false,
+				color: 1,
+				direction: 1,
 				score: 0,
 			}
 		default: {
@@ -86,28 +85,90 @@ const reducer = (state, action) => {
 export default function Game() {
 	const [state, dispatch] = useReducer(reducer,initState());
 	let { direction, lost, score } = state;
-	// console.log("state: ", state);
-
-	let interval = null;
-	const UseTimeout = (fn, timeout) => {
-		interval = setTimeout(fn, timeout);
-	}
+	const [speed, setSpeed] = useState(1500);
 
 	useEffect(() => {
-		UseTimeout(gameLoop, 1500);
+		setSpeed(1500)
+		UseTimeout(gameLoop, speed);
 		document.addEventListener('keydown', handleKey);
 		return function cleanup() {
 			document.removeEventListener('keydown', handleKey);
 		}
 	},[]);
 
-	let component = null
-	let count = 0
-	let nextState = null
+	let move = 0
+	const { height, width } = useWindowDimensions();
+	const drawDirection = () => {
+		move = Math.floor(Math.random() * 3)
+		let move2 = Math.floor(Math.random() * 3)
+		if (state.score <= 5){
+			component = Dir[state.direction -1] + " green " + Move[state.direction -1]
+		} else if (state.score >= 20) {
+			if(state.color === 1) {
+				component = Dir[state.direction -1] + Color[state.color -1] + Move[move] + "2"
+			} else {
+				component = Dir[move] + Color[state.color -1] + Move[state.direction -1] + "2"
+			}
+		} else if (state.score >= 15) {
+			if(state.color === 1) {
+				component = Dir[state.direction -1] + Color[state.color -1] + Move[move] + "1"
+			} else {
+				component = Dir[move] + Color[state.color -1] + Move[state.direction -1] + "1"
+			}
+		} else {
+			if(state.color === 1) {
+				component = Dir[state.direction -1] + Color[state.color -1] + Move[move]
+			} else {
+				component = Dir[move] + Color[state.color -1] + Move[state.direction -1]
+			}
+		}
+		if (!state.lost) {
+			return (
+				<div> {Arrows("arrows "+ component, height, width)} </div>
+				// <div> {Arrows("arrow up green Up", height, width)} </div>
+			)
+		}
+	}
 
+	let interval = null;
+	const UseTimeout = (fn, timeout) => {
+		interval = setTimeout(fn.bind(null), timeout);
+	}
+
+	let lostState = false
+	let actionMade = false
+	const handleKey = (e) => {
+		if(c !== 3) {
+			if (dir === 1 && (e.which !== Keys.Right && e.which !== Keys.d)) {
+				lostState = true
+			} else if (dir === 2 && (e.which !== Keys.Up && e.which !== Keys.w)) {
+				lostState = true
+			} else if (dir === 3 && (e.which !== Keys.Left && e.which !== Keys.a)) {
+				lostState = true
+			} else if (dir === 4 && (e.which !== Keys.Down && e.which !== Keys.s)) {
+				lostState = true
+			}
+		}
+		if (lostState || c === 3) {
+			clearTimeout(interval);
+			dispatch({type:'game_lost'});
+			return;
+		} 
+		actionMade = true
+	}
+
+	let count = 0
+	let component = null
+	let nextState = null
 	const gameLoop = () => {
+		console.log("gameLoop ", state.direction)
 		let lastR = 0;
-		lastR = r
+		lastR = c
+		if((!actionMade && lastR !== 3) || (actionMade && lastR === 3)) {
+			dispatch({type:'game_lost'});
+			return;
+		}
+		count = count + 1
 		nextState = {
 			color: nextColor(),
 			direction: nextMove(),
@@ -119,20 +180,30 @@ export default function Game() {
 			type: 'update',
 			newState: nextState
 		});
-
+		
 		clearTimeout(interval);
-		if((!actionMade && lastR !== 3) || (actionMade && lastR === 3)) {
-			dispatch({type:'game_lost'});
-			return;
+		interval = 0;
+
+		if(count === 14) {
+			setSpeed(1250)
+		} if(count === 19) {
+			setSpeed(1000)
 		}
+
 		actionMade = false
-		if(count > 20) {
-			UseTimeout(gameLoop, 1000);
-		} else if(count > 15) {
-			UseTimeout(gameLoop, 1250);
+		UseTimeout(gameLoop, speed);
+	}
+
+	let c = 1;
+	const nextColor = () => {
+		if(count > 15) {
+			c = Math.floor(Math.random() * 3 + 1)
+		} else if(count > 10) {
+			c = Math.floor(Math.random() * 2 + 1)
 		} else {
-			UseTimeout(gameLoop, 1500);
+			c = 1
 		}
+		return c;
 	}
 
 	let dir = 1;
@@ -141,86 +212,19 @@ export default function Game() {
 		return dir;
 	}
 
-	let r = 1;
-	const nextColor = () => {
-		if(count > 15) {
-			r = Math.floor(Math.random() * 3 + 1)
-		} else if(count > 10) {
-			r = Math.floor(Math.random() * 2 + 1)
-		} else {
-			r = 1
-		}
-		return r;
-	}
+  const navigate = useNavigate();
+  const goHome = () => {
+    navigate("../");
+  }
 
-	let lostState = false
-	let actionMade = false
-	const handleKey = (e) => {
-		if(r !== 3) {
-			if (dir === 1 && (e.which !== Keys.Right && e.which !== Keys.d)) {
-				lostState = true
-			} else if (dir === 2 && (e.which !== Keys.Up && e.which !== Keys.w)) {
-				lostState = true
-			} else if (dir === 3 && (e.which !== Keys.Left && e.which !== Keys.a)) {
-				lostState = true
-			} else if (dir === 4 && (e.which !== Keys.Down && e.which !== Keys.s)) {
-				lostState = true
-			}
-		}
-		if (lostState || r === 3) {
-			clearTimeout(interval);
-			dispatch({type:'game_lost'});
-		} 
-		count = count + 1
-		actionMade = true
-	}
-
-	let move = 0
-	const { height, width } = useWindowDimensions();
-	const drawDirection = () => {
-		move = Math.floor(Math.random() * 3)
-		let move2 = Math.floor(Math.random() * 3)
-		if (state.score < 5){
-			if (state.direction === 1) {
-				component = "right green Right"
-			} else if (state.direction === 2) {
-				component = "up green Up"
-			} else if (state.direction === 3) {
-				component = "left green Left"
-			}  else if (state.direction === 4) {
-				component = "down green Down"
-			}
-		}
-		if (state.color === 1) {
-			if (state.score < 15) {
-				component = Dir[state.direction -1] + " green " + Move[move]
-			} else if (state.score < 20) {
-				component = Dir[state.direction -1] + " green " + Move[move] + "1"
-			} else {
-				component = Dir[state.direction -1] + " green " + Move[move] + "2"
-			}
-		} else if (state.color === 2) {
-			if (state.score < 15) {
-				component = Dir[move] + " orange " + Move[state.direction -1]
-			} else if (state.score < 20) {
-				component = Dir[move] + " orange " + Move[state.direction -1] + "1"
-			} else {
-				component = Dir[move] + " orange " + Move[state.direction -1] + "2"
-			}
-		} else if (state.color === 3) {
-			if (state.score < 15) {
-				component = Dir[move] + " orange " + Move[move2]
-			} else if (state.score < 20) {
-				component = Dir[move] + " orange " + Move[move2] + "1"
-			} else {
-				component = Dir[move] + " orange " + Move[move2] + "2"
-			}
-		}
-		return (
-			<div> {Arrows("arrows "+ component, height, width)} </div>
-			// <div> {Arrows("arrow up green Up", height, width)} </div>
-		)
-	}
+  const restart = () => {
+  	const {lost} = state;
+  	if (lost) {
+		  dispatch({type:'restart'});
+  		setSpeed(1500);
+    	UseTimeout(gameLoop, speed);
+  	}
+  }
 
 	return (
 		<div>
@@ -228,10 +232,29 @@ export default function Game() {
 				<h4 className="score">SCORE: {state.score} </h4>
 			</div>
 			{state.lost && 
-			<div className="game-lost">
-				You lost🤡️!
+			<div>
+				<div className="game-lost">
+					You lost🤡️!
+				</div> 
+				<div className="lost-buttons">
+					<button className="btn btn-info btn-lg goHome" 
+					onClick={goHome}>Go back</button> 
+				</div> 
 			</div>}
-			{ !state.lost && drawDirection() }
+			{ !state.lost && drawDirection()}
 		</div>
 	)
 }
+
+// <button className="btn btn-info btn-lg goHome" type="reset"
+// 					onClick={restart}>Loose again</button>
+
+  // const tryAgain = () => {
+  //  if(state.lost) {
+  //    lostState = false;
+  //     console.log('restarting: ->', state.lost);
+  //     dispatch({type:'restart'});
+  //     console.log('restarting: <-', state.lost);
+  //    UseTimeout(gameLoop, 1500);
+  //  }
+  // }

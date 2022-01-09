@@ -17,7 +17,7 @@ export default function Arrows(style, height, width) {
 function Arrow(style, width) {
 	var rows = [];
 	for (var i=0; i < Math.floor(width/60); i++) {
-		rows.push(<span></span>);
+		rows.push(<span key={i}></span>);
 	}
 	return (
 		<div className= {style}>

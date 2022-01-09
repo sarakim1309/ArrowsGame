@@ -87,11 +87,6 @@ export default function Game() {
 	let { direction, lost, score } = state;
 	// console.log("state: ", state);
 
-	let interval = null;
-	const UseTimeout = (fn, timeout) => {
-		interval = setTimeout(fn, timeout);
-	}
-
 	useEffect(() => {
 		UseTimeout(gameLoop, 1000);
 		document.addEventListener('keydown', handleKey);
@@ -100,49 +95,28 @@ export default function Game() {
 		}
 	},[]);
 
-	let component = null
-	let count = 0
-	let nextState = null
-
-	const gameLoop = () => {
-		let lastR = 0;
-		lastR = r
-		nextState = {
-			color: nextColor(),
-			direction: nextMove(),
-			lost: false,
-			score: count,
+	const { height, width } = useWindowDimensions();
+	const drawDirection = () => {
+		let move = Math.floor(Math.random() * 3)
+		//COLOR GREEN
+		if(state.color === 1) {
+			component = Dir[state.direction - 1] + " green " + Move[move] + "2"
+		// COLOR ORANGE
+		} else if(state.color === 2) {
+			component = Dir[move] + " orange " + Move[state.direction - 1] + "2"
+		//COLOR RED
+		} else if(state.color === 3) {
+			component = Dir[move] + " red " + Move[state.direction - 1] + "2"
 		}
-
-		dispatch({
-			type: 'update',
-			newState: nextState
-		});
-
-		clearTimeout(interval);
-		if((!actionMade && lastR !== 3) || (actionMade && lastR === 3)) {
-			dispatch({type:'game_lost'});
-			return;
-		}
-		actionMade = false
-		UseTimeout(gameLoop, 1000);
+		return (
+			<div> {Arrows("arrows "+ component, height, width)} </div>
+			// <div> {Arrows("arrow up green Up", height, width)} </div>
+		)
 	}
 
-	let dir = 1;
-	const nextMove = () => {
-		dir = Math.floor(Math.random() * 4 + 1)
-		return dir;
-	}
-
-	let r = 1;
-	let prevColor = 1;
-	const nextColor = () => {
-		r = Math.floor(Math.random() * 3 + 1)
-		if (prevColor === 3) {
-			r = Math.floor(Math.random() * 2 + 1)	
-		}
-		prevColor = r
-		return r;
+	let interval = null;
+	const UseTimeout = (fn, timeout) => {
+		interval = setTimeout(fn, timeout);
 	}
 
 	let lostState = false
@@ -167,26 +141,54 @@ export default function Game() {
 		actionMade = true
 	}
 
-	let move = 0
-	const { height, width } = useWindowDimensions();
-	const drawDirection = () => {
-		move = Math.floor(Math.random() * 3)
-		let move2 = Math.floor(Math.random() * 3)
-		//COLOR GREEN
-		if(state.color === 1) {
-			component = Dir[state.direction - 1] + " green " + Move[move] + "2"
-		// COLOR ORANGE
-		} else if(state.color === 2) {
-			component = Dir[move] + " orange " + Move[state.direction - 1] + "2"
-		//COLOR RED
-		} else if(state.color === 3) {
-			component = Dir[move] + " red " + Move[move2] + "2"
+	let component = null
+	let count = 0
+	let nextState = null
+	const gameLoop = () => {
+		let lastR = 0;
+		lastR = r
+		nextState = {
+			color: nextColor(),
+			direction: nextMove(),
+			lost: false,
+			score: count,
 		}
-		return (
-			<div> {Arrows("arrows "+ component, height, width)} </div>
-			// <div> {Arrows("arrow up green Up", height, width)} </div>
-		)
+
+		dispatch({
+			type: 'update',
+			newState: nextState
+		});
+
+		clearTimeout(interval);
+		if((!actionMade && lastR !== 3) || (actionMade && lastR === 3)) {
+			dispatch({type:'game_lost'});
+			return;
+		}
+		actionMade = false
+		UseTimeout(gameLoop, 1000);
 	}
+
+	let r = 1;
+	let prevColor = 1;
+	const nextColor = () => {
+		r = Math.floor(Math.random() * 3 + 1)
+		if (prevColor === 3) {
+			r = Math.floor(Math.random() * 2 + 1)	
+		}
+		prevColor = r
+		return r;
+	}
+
+	let dir = 1;
+	const nextMove = () => {
+		dir = Math.floor(Math.random() * 4 + 1)
+		return dir;
+	}
+
+	const navigate = useNavigate();
+  const goHome = () =>{
+    navigate("../");
+  }
 
 	return (
 		<div>
@@ -194,8 +196,14 @@ export default function Game() {
 				<h4 className="score">SCORE: {state.score} </h4>
 			</div>
 			{state.lost && 
-			<div className="game-lost">
-				You lost🤡️!
+			<div>
+				<div className="game-lost">
+					You lost🤡️!
+				</div>
+				<div className="lost-buttons">
+					<button className="btn btn-primary btn-lg goHome" 
+					onClick={goHome}>Go back</button>
+				</div>
 			</div>}
 			{ !state.lost && drawDirection() }
 		</div>
