@@ -103,18 +103,18 @@ export default function Game() {
 		let move2 = Math.floor(Math.random() * 3)
 		if (state.score <= 5){
 			component = Dir[state.direction -1] + " green " + Move[state.direction -1]
-		} else if (state.score >= 20) {
-			if(state.color === 1) {
-				component = Dir[state.direction -1] + Color[state.color -1] + Move[move] + "2"
-			} else {
-				component = Dir[move] + Color[state.color -1] + Move[state.direction -1] + "2"
-			}
-		} else if (state.score >= 15) {
-			if(state.color === 1) {
-				component = Dir[state.direction -1] + Color[state.color -1] + Move[move] + "1"
-			} else {
-				component = Dir[move] + Color[state.color -1] + Move[state.direction -1] + "1"
-			}
+		// } else if (state.score >= 20) {
+		// 	if(state.color === 1) {
+		// 		component = Dir[state.direction -1] + Color[state.color -1] + Move[move] + "2"
+		// 	} else {
+		// 		component = Dir[move] + Color[state.color -1] + Move[state.direction -1] + "2"
+		// 	}
+		// } else if (state.score >= 15) {
+		// 	if(state.color === 1) {
+		// 		component = Dir[state.direction -1] + Color[state.color -1] + Move[move] + "1"
+		// 	} else {
+		// 		component = Dir[move] + Color[state.color -1] + Move[state.direction -1] + "1"
+		// 	}
 		} else {
 			if(state.color === 1) {
 				component = Dir[state.direction -1] + Color[state.color -1] + Move[move]
@@ -184,11 +184,11 @@ export default function Game() {
 		clearTimeout(interval);
 		interval = 0;
 
-		if(count === 14) {
-			setSpeed(1250)
-		} if(count === 19) {
-			setSpeed(1000)
-		}
+		// if(count === 14) {
+		// 	setSpeed(1250)
+		// } if(count === 19) {
+		// 	setSpeed(1000)
+		// }
 
 		actionMade = false
 		UseTimeout(gameLoop, speed);
